@@ -1,55 +1,70 @@
-Here’s a refined README.md template for your personal website, incorporating more personal branding and project-specific highlights:
-
 # Tingyu Zhang's Personal Website
 
-Welcome to my personal website, showcasing projects and experience in full-stack development, machine learning, and AI engineering. This website is a [Next.js](https://nextjs.org/) project, built to be fast, responsive, and scalable, and is deployed on [Vercel](https://vercel.com/).
+Welcome to my personal website, showcasing projects and experience in full-stack development, machine learning, and AI engineering. Built with [Next.js](https://nextjs.org/) and deployed on [Vercel](https://vercel.com/), this portfolio demonstrates my commitment to creating fast, responsive, and scalable applications.
 
 ## 🛠 Technologies Used
 
-- **Frontend**: [Next.js](https://nextjs.org/), React, Tailwind CSS for styling and responsive design
-- **Backend**: Integrated with custom APIs and data processing systems
-- **Deployment**: Vercel for frontend deployment, with backend options using GCP/AWS/Heroku
+- **Frontend**
+  - [Next.js](https://nextjs.org/) and React for dynamic UI
+  - Tailwind CSS for responsive design
+  - Modern JavaScript (ES6+)
+- **Backend**
+  - Custom API architecture
+  - Advanced data processing systems
+  - RESTful service integration
+- **Deployment**
+  - Vercel for frontend hosting
+  - Cloud infrastructure (GCP/AWS/Heroku)
 
 ## 🚀 Getting Started
-
-To get the development environment running locally:
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/Robert54/your-repo-name.git
    cd your-repo-name
+   ```
 
-	2.	Install dependencies:
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-npm install
-# or
-yarn install
+3. Run the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
 
+4. View the site at [http://localhost:3000](http://localhost:3000)
 
-	3.	Run the development server:
+## 🌟 Key Projects
 
-npm run dev
-# or
-yarn dev
+### AI Directory Website Scraper
+- Intelligent web scraping system with dynamic content handling
+- Implemented cost-effective data extraction using GPT-4
+- Automated processing and categorization of web content
 
+### Lane Simulation in Autonomous Driving
+- Generative model for synthetic road condition simulation
+- GAN architecture for realistic lane data generation
+- Integration with Meta's Segment Anything Model (SAM)
+- Enhanced training dataset generation for autonomous vehicles
 
-	4.	Open http://localhost:3000 to see the site.
+### Voice Interaction Pipeline
+- Advanced voice recognition and response system
+- Seamless integration with OpenAI and ElevenLabs APIs
+- Real-time processing for interactive AI applications
 
-🌟 Key Projects
+## 📖 Resources
 
-	•	AI Directory Website Scraper: An intelligent web scraper with dynamic content handling and cost optimization strategies using GPT-4.
-	•	Interactive Event Finder: Full-stack event search app using Angular, Node.js, and third-party APIs, deployed on Google Cloud.
-	•	Voice Interaction Pipeline: Advanced voice recognition and response system leveraging OpenAI and ElevenLabs, used in interactive AI applications.
+- [Portfolio Website](https://your-website-url.com)
+- [GitHub Profile](https://github.com/Robert54)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Learn Next.js](https://nextjs.org/learn)
 
-📖 Learn More
+## 📈 Deployment
 
-Explore my latest projects and learn more about my technical background on GitHub.
-
-	•	Next.js Documentation
-	•	Learn Next.js
-
-📈 Deploy on Vercel
-
-This project is hosted on Vercel. Learn more about deploying Next.js apps on Vercel.
-
-This revised README offers a personal touch and highlights your expertise in AI, machine learning, and full-stack projects from your resume, positioning the website as a portfolio of your capabilities. Let me know if you'd like any further customization.
+This project is deployed on Vercel's edge network for optimal performance. For deployment details and configuration options, visit the [Vercel deployment documentation](https://nextjs.org/docs/deployment).
