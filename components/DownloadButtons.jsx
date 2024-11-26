@@ -11,10 +11,10 @@ const DownloadButtons = () => {
     
     // Set the appropriate URL based on CV type
     if (type === 'ml') {
-      link.href = 'https://drive.google.com/file/d/1xdgWKS9uXmJwZacuutRQmtpXReTUKK5L/view?usp=sharing';
+      link.href = 'https://drive.google.com/file/d/1PY7GgkKeNeq2iNLcGbQmb6wITN1keUNG/view?usp=sharing';
       link.download = 'Tingyu_Zhang_ML_CV.pdf';
     } else {
-      link.href = 'https://drive.google.com/file/d/1q7ZIWir097x8XJhskl3S0BBtwOxuFtH9/view?usp=drive_link';
+      link.href = 'https://drive.google.com/file/d/1eUNu0Ann-1VLdNcUshuxmIDWPXsNH8Lk/view?usp=sharing';
       link.download = 'Tingyu_Zhang_FullStack_CV.pdf';
     }
 
