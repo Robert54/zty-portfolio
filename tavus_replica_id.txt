@@ -1,0 +1,29 @@
+rcdc547f68d3
+
+curl --request POST \
+  --url https://tavusapi.com/v2/replicas \
+  -H "Content-Type: application/json" \
+  -H "x-api-key: <api-key>" \
+  -d '{
+    "replica_name": "",
+    "consent_video_url": "<file url>",
+    "train_video_url": "<file url>",
+    "model_name": "phoenix-2"
+}'
+
+fetch('https://tavusapi.com/v2/replicas', {
+  method: 'POST',
+  headers: {
+    "Content-Type": "application/json",
+    "x-api-key": "<api-key>"
+  },
+  body: JSON.stringify({
+    "replica_name": "",
+    "consent_video_url": "<file url>",
+    "train_video_url": "<file url>",
+    "model_name": "phoenix-2"
+  }),
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error('Error:', error));
