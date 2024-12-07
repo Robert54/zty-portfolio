@@ -19,7 +19,7 @@ export default function Home() {
       <div className="fixed inset-0 -z-10">
         <Scene />
       </div>
-
+      {/* hi */}
       <div className="container mx-auto h-full relative z-10">
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
           <div className="text-center xl:text-left order-2 xl:order-none">
