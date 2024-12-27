@@ -43,12 +43,12 @@ const about = {
 const experience = {
   icon: "/assets/resume/badge.svg",
   title: "My experience",
-  description: "Professional experience in AI/ML, full-stack development, and algorithm engineering.",
+  description: "Professional experience in AI/ML, Full-Stack development, and algorithm engineering.",
   items: [
     {
       company: "AffectusAI",
       position: "AI / ML Full Stack Engineer",
-      duration: "June 2024 - Oct 2024",
+      duration: "June 2024 - December 2024",
       location: "Remote",
       country: "United States",
       details: [
