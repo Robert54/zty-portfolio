@@ -15,6 +15,17 @@ module.exports = {
       center: true,
       padding: "15px",
     },
+    extend: {
+      keyframes: {
+        draw: {
+          '0%': { strokeDashoffset: '245' },
+          '100%': { strokeDashoffset: '0' }
+        }
+      },
+      animation: {
+        draw: 'draw 2s ease-in-out forwards'
+      }
+    },
     screens: {
       sm: "640px",
       md: "768px",

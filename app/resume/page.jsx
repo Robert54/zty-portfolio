@@ -46,18 +46,37 @@ const experience = {
   description: "Professional experience in AI/ML, Full-Stack development, and algorithm engineering.",
   items: [
     {
+      company: "All Abilities Solutions",
+      position: "AI / ML Software Engineer",
+      duration: "December 2024 - Present",
+      location: "Remote (Los Angeles)",
+      country: "United States",
+      details: [
+        "Developed an integrated AI assistant platform for Northwest Center and Marriott Bonvoy that combines RAG, memory systems, and multimodal capabilities for real-world automation.",
+        "Built multimodal agents using Vapi, CUA, and LangManus for shift management and booking workflows.",
+        "Created a Simli-powered avatar for Marriott enabling video/audio customer interactions for flight bookings.",
+        "Implemented on-device document processing for extracting key information from schedules, contracts, and manuals.",
+        "Fine-tuned Qwen2-VL (2B) via SFT + GRPO to recognize cleaning-specific visual elements in janitorial environments.",
+        "Deployed lightweight models (DeepSeek R1, Gemma 3B) with MLX and MLC Chat for offline capabilities.",
+        "Enabled offline voice interaction through Sesame 1B deployed on the phone.",
+        "Utilized Arize for tracing and evaluating voice application pipelines, enhancing observability in voice chat.",
+        "Utilized Gemini for video task verification and Hume AI for employee sentiment analysis (mood check).",
+        "Migrated from Next.js to React Native (Expo + Solito) for consistent web/mobile experience.",
+        "Connected external systems via MCP architecture and delivered analytics dashboards using Firebase and Vercel."
+      ]
+    },
+    {
       company: "AffectusAI",
       position: "AI / ML Full Stack Engineer",
       duration: "June 2024 - December 2024",
-      location: "Remote",
+      location: "Remote (Los Angeles)",
       country: "United States",
       details: [
-        "Developed a full-stack AI-powered conversation system using TypeScript, Next.js, and React.",
-        "Implemented an Emotion and Topics-guided Contextual RAG system with Langchain.",
-        "Engineered a voice interaction pipeline with voice cloning and real-time communication features.",
-        "Enhanced personalized user experience through OpenAI model fine-tuning and Perplexity web search.",
-        "Developed a multi-step graph-based retrieval system with interactive visualization.",
-        "Applied AI safety measures including NVIDIA's NeMo Guardrails for intention classification.",
+        "Built full-stack AI conversation system using TypeScript backend, Next.js/React frontend, with Emotion/Topics-guided Contextual RAG (Langchain) and optimized Pinecone-MongoDB synchronization.",
+        "Engineered voice interaction pipeline with voice cloning, cancellation and filtering, using OpenAI/Groq for TTS/STT and ElevenLabs/Play.HT/Deepgram, with real-time interaction capabilities via LiveKit, Vapi, and Daily (pipecat).",
+        "Enhanced personalized user experience through OpenAI model fine-tuning, Perplexity web search, and developed a dynamic style management system, incorporating Hume AI’s emotional tagging for adaptive LLM state management.",
+        "Developed an multi-step graph-based retrieval system using nearest neighbor algorithms, GraphRAG, and utilized embedding techniques like manifold learning and RIC for recall, complete with an interactive visualization interface.",
+        "Implemented AI safety measures with NVIDIA NeMo Guardrails, RAGs for continuous evaluation.",
         "Designed no-code dynamic behaviour RAG chatflows & agentic workflows with Flowise."
       ]
     },
@@ -196,7 +215,12 @@ export default function Resume() {
     setSelectedExperience(null);
   };
 
-  const highlightWords = ['react', 'TypeScript', 'Next.js', 'Langchain', 'openai', 'fastapi', 'perplexity', 'Deeplab V3+'];
+  const highlightWords = [
+    'RAG', 'multimodal', 'Simli', 'Qwen2-VL', 'DeepSeek', 'Gemma', 'MLC', 'MLX', 'Sesame', 'Arize', 'Gemini', 'Hume',
+    'React Native', 'Expo', 'Solito', 'Firebase', 'Vercel', 'TypeScript', 'Next.js', 'React', 'Langchain', 'Pinecone', 'MongoDB',
+    'OpenAI', 'Groq', 'TTS', 'STT', 'ElevenLabs', 'Play.HT', 'Deepgram', 'LiveKit', 'Vapi', 'Daily', 'pipecat',
+    'Perplexity', 'GraphRAG', 'RIC', 'NVIDIA', 'NeMo', 'Guardrails', 'Flowise', 'AI', 'LLM', 'fine-tuning', 'analytics', 'dashboard', 'offline'
+  ];
 
   return (
     <motion.div
@@ -345,7 +369,7 @@ export default function Resume() {
       </div>
 
       <Dialog open={selectedExperience !== null} onOpenChange={closeExperienceDialog}>
-        <DialogContent className="bg-gradient-to-br from-[#2a2a30] to-[#1c1c20] text-white border-2 border-accent">
+        <DialogContent className="bg-gradient-to-br from-[#2a2a30] to-[#1c1c20] text-white border-2 border-accent max-h-[80vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold">{selectedExperience?.position}</DialogTitle>
             <DialogDescription className="text-white/60">

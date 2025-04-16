@@ -193,7 +193,7 @@ const SimliAvatar = ({ isOpen, onClose }) => {
             autoPlay 
             playsInline 
             id="simli_video"
-            className="w-full h-full object-cover rounded-[250px]"
+            className="w-full h-full object-cover rounded-full"
           />
           <audio ref={audioRef} autoPlay id="simli_audio" />
         </div>

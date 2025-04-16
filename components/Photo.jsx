@@ -43,10 +43,10 @@ export default function Photo() {
               <stop offset="100%" stopColor="white" stopOpacity="0" />
             </radialGradient>
             <mask id="fadeMask">
-              <circle cx="250" cy="250" r="250" fill="url(#fadeGradient)" />
+              <circle cx="50%" cy="50%" r="50%" fill="url(#fadeGradient)" />
             </mask>
             <clipPath id="circleClip">
-              <circle cx="250" cy="250" r="250" />
+              <circle cx="50%" cy="50%" r="50%" />
             </clipPath>
           </defs>
         </svg>
@@ -61,16 +61,17 @@ export default function Photo() {
           className="w-[300px] h-[300px] xl:w-[500px] xl:h-[500px] relative overflow-hidden cursor-pointer"
           onClick={handleAvatarOpen}
         >
-          <div className="w-full h-full relative" style={{ clipPath: "url(#circleClip)" }}>
+          <div className="w-full h-full relative rounded-full overflow-hidden">
             {!isAvatarOpen ? (
               <Image
                 src="/assets/photo.png"
                 priority
                 quality={100}
                 fill
+                sizes="(max-width: 768px) 300px, 500px"
                 alt="Tingyu (Robert) Zhang"
                 className="object-cover"
-                style={{ mask: "url(#fadeMask)" }}
+                style={{ objectPosition: "center" }}
               />
             ) : (
               <SimliAvatar 

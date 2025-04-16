@@ -25,7 +25,7 @@ const Header = () => {
         </div>
 
         {/* mobile nav */}
-        <div className="xl:hidden">
+        <div className="xl:hidden relative z-50 cursor-pointer">
           <MobileNav />
         </div>
       </div>

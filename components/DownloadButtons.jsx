@@ -14,8 +14,10 @@ const DownloadButtons = () => {
       link.href = 'https://drive.google.com/file/d/1PY7GgkKeNeq2iNLcGbQmb6wITN1keUNG/view?usp=sharing';
       link.download = 'Tingyu_Zhang_ML_CV.pdf';
     } else {
-      link.href = 'https://drive.google.com/file/d/1eUNu0Ann-1VLdNcUshuxmIDWPXsNH8Lk/view?usp=sharing';
-      link.download = 'Tingyu_Zhang_FullStack_CV.pdf';
+      // link.href = 'https://drive.google.com/file/d/1eUNu0Ann-1VLdNcUshuxmIDWPXsNH8Lk/view?usp=sharing';
+      // link.download = 'Tingyu_Zhang_FullStack_CV.pdf';
+      link.href = 'https://drive.google.com/file/d/1HqsDxIpKnOsYpMUk7PGGOv2mmhEpI4ID/view?usp=sharing';
+      link.download = 'Tingyu_Zhang_Resume.pdf'
     }
 
     // Append to document, trigger click, and remove
@@ -32,10 +34,10 @@ const DownloadButtons = () => {
         className="uppercase flex items-center gap-2"
         onClick={() => handleDownloadCV('ml')}
       >
-        <span>ML CV</span>
+        <span>Resume</span>
         <Download className="h-5 w-5" />
       </Button>
-      <Button
+      {/* <Button
         variant="outline"
         size="lg"
         className="uppercase flex items-center gap-2"
@@ -43,7 +45,7 @@ const DownloadButtons = () => {
       >
         <span>Full Stack CV</span>
         <Download className="h-5 w-5" />
-      </Button>
+      </Button> */}
     </div>
   );
 };
