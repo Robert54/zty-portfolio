@@ -108,7 +108,7 @@ const projects = [
       "Developed an AI-powered web scraper for directory sites, handling pagination, dynamic content, and map-based interfaces. Utilized GPT-4o-mini models for intelligent element detection, reverse API routing for accuracy, and Firecrawl for request tracking.",
     stack: [
       { name: "GPT-4o-mini" },
-      { name: "Playright" },
+      { name: "Playwright" },
       { name: "Python" },
     ],
     image: "/assets/work/ai_scraper.png",
