@@ -16,26 +16,6 @@ module.exports = {
       padding: "15px",
     },
     extend: {
-      keyframes: {
-        draw: {
-          '0%': { strokeDashoffset: '245' },
-          '100%': { strokeDashoffset: '0' }
-        }
-      },
-      animation: {
-        draw: 'draw 2s ease-in-out forwards'
-      }
-    },
-    screens: {
-      sm: "640px",
-      md: "768px",
-      lg: "960px",
-      xl: "1200px",
-    },
-    fontFamily: {
-      primary: "var(--font-jetbrainsMono)",
-    },
-    extend: {
       colors: {
         primary: "#1c1c22",
         // primary: "#F5F5DC",
@@ -47,6 +27,10 @@ module.exports = {
       },
 
       keyframes: {
+        draw: {
+          '0%': { strokeDashoffset: '245' },
+          '100%': { strokeDashoffset: '0' }
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -57,9 +41,19 @@ module.exports = {
         },
       },
       animation: {
+        draw: 'draw 2s ease-in-out forwards',
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+    },
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "960px",
+      xl: "1200px",
+    },
+    fontFamily: {
+      primary: "var(--font-jetbrainsMono)",
     },
   },
   plugins: [require("tailwindcss-animate")],
