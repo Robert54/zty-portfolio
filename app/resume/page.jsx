@@ -47,49 +47,58 @@ const experience = {
   items: [
     {
       company: "All Abilities Solutions",
-      position: "AI / ML Software Engineer",
+      position: "Applied AI Engineer",
       duration: "December 2024 - Present",
-      location: "Remote (Los Angeles)",
+      location: "Seattle, WA",
       country: "United States",
       details: [
-        "Developed an integrated AI assistant platform for Northwest Center and Marriott Bonvoy that combines RAG, memory systems, and multimodal capabilities for real-world automation.",
-        "Built multimodal agents using Vapi, CUA, and LangManus for shift management and booking workflows.",
-        "Created a Simli-powered avatar for Marriott enabling video/audio customer interactions for flight bookings.",
-        "Implemented on-device document processing for extracting key information from schedules, contracts, and manuals.",
-        "Fine-tuned Qwen2-VL (2B) via SFT + GRPO to recognize cleaning-specific visual elements in janitorial environments.",
-        "Deployed lightweight models (DeepSeek R1, Gemma 3B) with MLX and MLC Chat for offline capabilities.",
-        "Enabled offline voice interaction through Sesame 1B deployed on the phone.",
-        "Utilized Arize for tracing and evaluating voice application pipelines, enhancing observability in voice chat.",
-        "Utilized Gemini for video task verification and Hume AI for employee sentiment analysis (mood check).",
-        "Migrated from Next.js to React Native (Expo + Solito) for consistent web/mobile experience.",
-        "Connected external systems via MCP architecture and delivered analytics dashboards using Firebase and Vercel."
+        "AI SaaS Platform Development: Developed unified AI SaaS platform with multimodal RAG and long-term memory for Northwest Center and Marriott Bonvoy, featuring real-world automation and customer service workflows.",
+        "Model Optimization on Verticals: Fine-tuned Qwen2.5-VL (3B parameters) using SFT + GRPO, achieving 40% accuracy improvement in domain-specific visual recognition tasks for janitorial automation workflows.",
+        "Edge Deployment: Deployed lightweight models (DeepSeek R1, Gemma 3B) on mobile with MLX, MLC Chat and Google AI Edge Gallery, maintaining offline capabilities on mobile devices.",
+        "On-device OCR & Text Extraction: Deployed lightweight OCR models for real-time document processing, reducing text extraction latency from minutes to seconds on mobile devices.",
+        "Multimodal Agent Architecture: Architected a real-time, Manus-inspired agent system for browser automation by implementing its core agentic loop with LangManus, leveraging the underlying LangGraph foundation to manage complex state and cyclical workflows while integrating with Vapi for voice I/O.",
+        "Cross-platform Migration: Migrated from Next.js PWA to React Native (Expo + Solito) ensuring consistent web/mobile experience; connected external systems via Model Context Protocols with Firebase and Vercel analytics dashboards.",
+        "AI Safety & Monitoring: Implemented comprehensive observability using Arize for voice pipeline tracing and Hume AI for real-time sentiment analysis, ensuring enterprise-grade reliability and user safety."
+      ]
+    },
+    {
+      company: "AchillesHR (Contract)",
+      position: "Machine Learning Engineer - Voice Agent Development",
+      duration: "April 2025 - June 2025",
+      location: "New York, NY",
+      country: "United States",
+      details: [
+        "Ultra-low Latency Voice Pipeline: Developed an ultra-low-latency STT-LLM-TTS workflow using LangGraph, integrating GPT-4o, Claude 3.5, and ElevenLabs to power dynamic, multilingual (12+ languages) HR interviews for 50+ clients.",
+        "Performance Optimization: Slashed p95 TTS latency by 57% (7s → 3s) and cut GPU costs by 40% by quantizing DiaTTS with Unsloth and deploying autoscaling inference endpoints on Modal and AWS Lambda.",
+        "Production SaaS Platform: Engineered a scalable, multi-tenant microservices backend (NestJS, PostgreSQL, Prisma) for 100+ companies. Implemented blue-green CI/CD (Porter.run) and APM (New Relic) to achieve 99.9% uptime, handling real-time calls via Twilio SIP and LiveKit WebRTC.",
+        "LLM Tool-calling Pipeline: Created a secure LLM tool-calling pipeline to ingest and parse resumes from presigned S3 URLs using a custom RAG system, enabling bidirectional data sync with enterprise HR systems (e.g., Oracle HCM) via Merge.dev.",
+        "Speaker Diarization Enhancement: Boosted speaker diarization accuracy to 95% by fine-tuning models (Clearvoice, ElevenLabs) and implementing custom post-processing, which directly increased downstream model A/B test win-rates by 22%."
       ]
     },
     {
       company: "AffectusAI",
-      position: "AI / ML Full Stack Engineer",
+      position: "AI Full Stack Engineer",
       duration: "June 2024 - December 2024",
       location: "Remote (Los Angeles)",
       country: "United States",
       details: [
-        "Built full-stack AI conversation system using TypeScript backend, Next.js/React frontend, with Emotion/Topics-guided Contextual RAG (Langchain) and optimized Pinecone-MongoDB synchronization.",
-        "Engineered voice interaction pipeline with voice cloning, cancellation and filtering, using OpenAI/Groq for TTS/STT and ElevenLabs/Play.HT/Deepgram, with real-time interaction capabilities via LiveKit, Vapi, and Daily (pipecat).",
-        "Enhanced personalized user experience through OpenAI model fine-tuning, Perplexity web search, and developed a dynamic style management system, incorporating Hume AI’s emotional tagging for adaptive LLM state management.",
-        "Developed an multi-step graph-based retrieval system using nearest neighbor algorithms, GraphRAG, and utilized embedding techniques like manifold learning and RIC for recall, complete with an interactive visualization interface.",
-        "Implemented AI safety measures with NVIDIA NeMo Guardrails, RAGs for continuous evaluation.",
-        "Designed no-code dynamic behaviour RAG chatflows & agentic workflows with Flowise."
+        "Personalized Growth Companion AI: Led end-to-end design and development of Personalized Growth Companion AI, a multi-agent system architected with LangGraph delivering proactive personalized experiences focused on personal growth, resulting in 40% boost in user engagement for self-reflection features.",
+        "Digital Self Module: Engineered a deep personalization engine (the \"Digital Self\" module) by fine-tuning foundation models (Llama series) on user-specific corpora, creating a high-fidelity simulation of the user's internal thought processes and vectorized long-term memory.",
+        "RLHF Pipeline Implementation: Implemented an advanced RLHF pipeline (Growth-Oriented Principled Adversarial Training) to train a professional \"Coach\" agent (the reasoning core), whose constructive and contrastive feedback are dynamically tailored to the user's emotional state as determined by a real-time Perception & Analysis module.",
+        "AI Safety Gateway: Built and deployed a robust, low-latency AI Safety Gateway (the final output filter) that processes all model outputs through a series of checks (keywords, classifiers, LLM-judge), ensuring responsible user interaction while maintaining high throughput.",
+        "System Integration & Optimization: Integrated and optimized the end-to-end system, engineering a predictive context pipeline with GraphRAG to pre-load relevant user memories, significantly reducing inference latency via optimized KV cache management, and incorporating a lightweight \"synthesis model\" (Weave Layer) that crafts a seamless internal dialogue."
       ]
     },
     {
       company: "Chima (YC-W23)",
       position: "Applied AI Engineer",
-      duration: "Jan 2024 - Feb 2024",
-      location: "San Francisco",
+      duration: "January 2024 - February 2024",
+      location: "San Francisco, CA",
       country: "United States",
       details: [
-        "Developed FastAPI backend services to identify knowledge gaps between user queries and LLM knowledge base.",
-        "Incorporated OpenAI and Perplexity API for responsive knowledge gap filling and reindexing in the RAG System.",
-        "Integrated backend with React Front-end and deployed product on Vercel for accessibility and performance."
+        "MVP LLM Integration: Delivered MVP LLM integration for knowledge gap detection using OpenAI and Perplexity APIs.",
+        "Cost Optimization: Optimized API costs by 40% through intelligent caching and request batching strategies.",
+        "Full-stack Development: Built scalable FastAPI backend with React frontend deployed on Vercel achieving sub-200ms response times."
       ]
     },
     {
@@ -99,9 +108,9 @@ const experience = {
       location: "Shanghai",
       country: "China",
       details: [
-        "Utilized elastic search and NLP techniques for event extraction from news and policy documents.",
-        "Assisted in building a python-based Data Flow implementation for policy linkage models.",
-        "Applied temporal graph neural networks to predict policy document release and analyze their impact."
+        "Temporal Graph Neural Networks: Developed temporal graph neural networks for policy release prediction, analyzing historical policy documents, public opinions, and research reports to forecast timing and content of regulatory announcements with 78% accuracy.",
+        "Event Extraction Pipeline: Built an event extraction pipeline using ElasticSearch, regex, and StanfordCoreNLP to extract government and industry elite opinions on policy impacts across sectors, processing 10,000+ documents daily.",
+        "Policy Linkage Models: Engineered policy linkage models on computational flow platform, enabling real-time monitoring of policy-market dynamics for investment decision support and regulatory compliance analysis."
       ]
     },
     {
@@ -111,14 +120,13 @@ const experience = {
       location: "Shanghai",
       country: "China",
       details: [
-        "Conducted research on precipitation detection using satellite data and modified Deeplab V3+.",
-        "Synthesized satellite data with numerical weather prediction model data for improved accuracy.",
-        "Assisted in processing model outputs for precipitation forecasting and explored upsampling methods.",
-        "Designed data preprocessing scripts for various models, including data cleaning and image processing."
+        "Precipitation Detection Research: Conducted research on precipitation detection using satellite data based on modified Deeplab V3+, achieving 15% improvement in detection accuracy through custom neural architectures and loss functions.",
+        "Data Synthesis: Synthesized satellite data with numerical weather prediction models from National Meteorological Center, optimizing Vision Transformer model features modality for enhanced precipitation detection accuracy.",
+        "Data Preprocessing Pipeline: Designed comprehensive data preprocessing pipeline for large-scale weather data, implementing image cropping, stitching, and geographic coordinate system alignment."
       ]
     },
     {
-      company: "Institute for China Sustainable Urbanization Tsinghua University",
+      company: "Institute for China Sustainable Urbanization, Tsinghua University",
       position: "Big Data Engineer Intern",
       duration: "July 2018 - August 2018",
       location: "Beijing",
@@ -216,9 +224,10 @@ export default function Resume() {
   };
 
   const highlightWords = [
-    'RAG', 'multimodal', 'Simli', 'Qwen2-VL', 'DeepSeek', 'Gemma', 'MLC', 'MLX', 'Sesame', 'Arize', 'Gemini', 'Hume',
-    'React Native', 'Expo', 'Solito', 'Firebase', 'Vercel', 'TypeScript', 'Next.js', 'React', 'Langchain', 'Pinecone', 'MongoDB',
-    'OpenAI', 'Groq', 'TTS', 'STT', 'ElevenLabs', 'Play.HT', 'Deepgram', 'LiveKit', 'Vapi', 'Daily', 'pipecat',
+    'RAG', 'multimodal', 'Simli', 'Qwen2.5-VL', 'DeepSeek', 'Gemma', 'MLC', 'MLX', 'Google', 'Edge', 'OCR', 'Sesame', 'Arize', 'Gemini', 'Hume',
+    'LangManus', 'LangGraph', 'MCP', 'React Native', 'Expo', 'Solito', 'Firebase', 'Vercel', 'TypeScript', 'Next.js', 'React', 'Langchain', 'Pinecone', 'MongoDB',
+    'OpenAI', 'Groq', 'GPT-4o', 'Claude', 'TTS', 'STT', 'ElevenLabs', 'Play.HT', 'Deepgram', 'LiveKit', 'Vapi', 'Daily', 'pipecat',
+    'Unsloth', 'Modal', 'AWS', 'Lambda', 'NestJS', 'PostgreSQL', 'Prisma', 'Porter', 'New Relic', 'Twilio', 'WebRTC', 'S3', 'Merge', 'Clearvoice',
     'Perplexity', 'GraphRAG', 'RIC', 'NVIDIA', 'NeMo', 'Guardrails', 'Flowise', 'AI', 'LLM', 'fine-tuning', 'analytics', 'dashboard', 'offline'
   ];
 

@@ -17,102 +17,112 @@ import WorkSliderBtns from "@/components/WorkSliderBtns";
 
 const projects = [
   {
-
+    category: "AGI House hackathon",
+    title: "Inflection AI + LiveKit Integration",
+    date: "Summer 2025",
+    description:
+      "Built real-time emotional AI system using Pi 3.1's emotion attribute labeling with LiveKit WebRTC integration and Tavus for digital human coaching.",
+    stack: [
+      { name: "Pi 3.1" },
+      { name: "LiveKit" },
+      { name: "Tavus" },
+    ],
+    bullets: [
+      "Built real-time emotional AI system using Pi 3.1's emotion attribute labeling with LiveKit WebRTC integration.",
+      "Integrated Tavus for digital human coaching with dynamic emotional state detection during live sessions.",
+    ],
+    image: "/assets/work/ai_conversation.png",
+    live: "https://github.com/Robert54",
+    github: "https://github.com/Robert54",
+  },
+  {
+    category: "AI Engineering hackathon",
+    title: "Accessible Front-End Codegen",
+    date: "Summer 2025",
+    description:
+      "Co-developed WCAG-compliant UI generator outperforming frontier LLMs by 32% using Reasoning Reward Model (RRM).",
+    stack: [
+      { name: "Qwen 4B" },
+      { name: "Unsloth" },
+      { name: "Claude 4" },
+      { name: "Gemini 2.5" },
+    ],
+    bullets: [
+      "Fine-tuned Qwen 4B with custom Unsloth strategy achieving 91% compliance score with axe-core and WAVE evaluation.",
+      "Created 18M token accessibility dataset using Claude 4 and Gemini 2.5 Flash for specialized training.",
+    ],
+    image: "/assets/work/ai_scraper.png",
+    live: "https://github.com/Robert54",
+    github: "https://github.com/Robert54",
+  },
+  {
     category: "GPU hackathon",
-    title: "CUDA Codegen from PyTorch Modules (1st Place in Strong Compute GPU Hackathon)",
+    title: "CUDA Codegen System",
     date: "Spring 2025",
     description:
-      "1st Place: Built an LLM-powered CUDA codegen system for PyTorch modules, enabling custom kernel generation and benchmarking on NVIDIA GPUs.",
+      "1st Place: Built PyTorch-to-CUDA transpiler achieving 40% average speedup using fine-tuned Llama DeepSeek7B.",
     stack: [
       { name: "PyTorch" },
       { name: "CUDA" },
-      { name: "DeepSeek/Qwen" },
+      { name: "Llama" },
       { name: "GRPO" },
-      { name: "Flask" }
     ],
     bullets: [
-      "Built a CUDA kernel codegen system that transpiles PyTorch modules into inline custom CUDA using LLMs.",
-      "Fine-tuned Llama DeepSeek7B (SFT) on 8x NVIDIA L4 GPUs to generate candidate kernels from Torch modules.",
-      "Applied GRPO on DeepSeek R1-distilled Qwen 1.5B, using compile success, correctness, and speed as reward signals.",
-      "Designed a Flask API backend with /test_kernel endpoint for CUDA kernel evaluation and benchmarking.",
-      "Benchmarked generated CUDA kernels vs. Torch eager and torch.compile modes using runtime and correctness checks."
+      "Built PyTorch-to-CUDA transpiler achieving 40% average speedup using fine-tuned Llama DeepSeek7B.",
+      "Applied GRPO optimization with compile success, correctness, and performance reward signals.",
     ],
     image: "/assets/work/cuda_codegen.png",
     live: "https://words.strongcompute.com/p/strong-compute-gpu-hackathon-recap",
     github: "https://github.com/Robert54",
   },
   {
-
     category: "Llama Impact hackathon",
-    title: "Compllama (2nd Place in Llama Impact Hackathon)",
+    title: "Compllama",
     date: "Fall 2024",
     description:
-      "2nd Place: Built an AI compliance platform leveraging Llama LLMs, vector DBs, and orchestration for automated legal updates and award-winning performance.",
-
+      "2nd Place: Developed AI compliance automation processing 500+ municipalities using Llama Stack Framework with Together AI.",
     stack: [
       { name: "Llama" },
-      { name: "LLM2Vec" },
       { name: "ChromaDB" },
       { name: "LlamaIndex" },
       { name: "Together AI" },
-      { name: "Restack" },
-      { name: "MindsDB" },
-      { name: "Meta" }
     ],
     bullets: [
-      "Developed AI Compliance solution that auto-updates city & state regulations requirements using Municode data.",
-      "Implemented McGill-NLP/LLM2Vec-Meta-Llama-3-8B-Instruct embedding model for semantic similarity tasks.",
-      "Used together.ai embeddings with ChromaDB vector db and LlamaIndex orchestration for compliance text processing.",
-      "Leveraged Meta’s Llama Stack Framework with Together AI’s Llama3.1 405B as backbone LLM.",
-      "Monitored QPS, latency, and TPS metrics using Restack for optimal LLM performance.",
-      "Integrated MindsDB for municipal information scraping and vector database insertion.",
-      "Won 2nd Prize in Llama Impact Hackathon and Best Usage of Llama Stack award for AI compliance solution."
+      "Developed AI compliance automation processing 500+ municipalities using Llama Stack Framework with Together AI.",
+      "Won Best Usage of Llama Stack award for innovative ChromaDB + LlamaIndex orchestration.",
     ],
     image: "/assets/work/comp_llama.png",
     live: "https://lablab.ai/event/llama-impact-hackathon/compllama/compllama",
     github: "https://github.com/Robert54",
   },
   {
-
-    category: "fullstack",
-    title: "AI-Powered Conversation System",
+    category: "autonomous driving",
+    title: "Lane Simulation in Autonomous Driving Training",
+    date: "Fall 2023",
     description:
-      "Developed a full-stack AI-powered system with Next.js and TypeScript. Implemented Emotion and Topics-guided Contextual RAG using Langchain, synchronized data management with Pinecone and MongoDB.",
+      "Developed a Generative Adversarial Network (GAN) to transform abstract lane depictions into realistic road conditions, integrating Meta's Segment Anything Model (SAM) to improve ground truth masks for autonomous driving training.",
     stack: [
-      { name: "Next.js" },
-      { name: "TypeScript" },
-      { name: "Langchain" },
-      { name: "Pinecone" },
-      { name: "MongoDB" },
-    ],
-    image: "/assets/work/ai_conversation.png",
-    live: "https://vercel.app/live_project_url",
-    github: "https://github.com/Robert54",
-  },
-  {
-
-    category: "machine learning",
-    title: "Lane Simulation in Autonomous Driving",
-    description:
-      "Built a generative model using GANs for lane condition simulation, enhancing autonomous driving training. Integrated Meta's SAM model for better image quality.",
-    stack: [{ name: "GANs" }, { name: "Python" }, { name: "Pytorch" }],
-    image: "/assets/work/lane_simulation.png",
-    live: "https://words.strongcompute.com/p/strong-compute-gpu-hackathon-recap",
-    github: "https://github.com/Robert54",
-  },
-  {
-
-    category: "data engineering",
-    title: "AI Directory Website Scraper",
-    description:
-      "Developed an AI-powered web scraper for directory sites, handling pagination, dynamic content, and map-based interfaces. Utilized GPT-4o-mini models for intelligent element detection, reverse API routing for accuracy, and Firecrawl for request tracking.",
-    stack: [
-      { name: "GPT-4o-mini" },
-      { name: "Playwright" },
+      { name: "GANs" },
       { name: "Python" },
+      { name: "Pytorch" },
     ],
-    image: "/assets/work/ai_scraper.png",
-    live: "https://words.strongcompute.com/p/strong-compute-gpu-hackathon-recap",
+    image: "/assets/work/lane_simulation.png",
+    live: "https://github.com/Robert54",
+    github: "https://github.com/Robert54",
+  },
+  {
+    category: "parallel computing",
+    title: "Depthwise Separable Convolution Acceleration on GPU",
+    date: "Winter 2022",
+    description:
+      "Accelerated Depthwise Separable Convolution on GPU by implementing a parallelized GEMM approach and optimizing memory access patterns through data re-usage in shared memory and register-level shuffling.",
+    stack: [
+      { name: "CUDA" },
+      { name: "GEMM" },
+      { name: "C++" },
+    ],
+    image: "/assets/work/cuda_codegen.png",
+    live: "https://github.com/Robert54",
     github: "https://github.com/Robert54",
   },
 ];
