@@ -20,8 +20,8 @@ Welcome to my personal website, showcasing projects and experience in full-stack
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Robert54/your-repo-name.git
-   cd your-repo-name
+   git clone https://github.com/Robert54/zty-portfolio.git
+   cd zty-portfolio
    ```
 
 2. Install dependencies:
@@ -60,7 +60,7 @@ Welcome to my personal website, showcasing projects and experience in full-stack
 
 ## 📖 Resources
 
-- [Portfolio Website](https://your-website-url.com)
+- [Portfolio Website](https://zty-portfolio.vercel.app/)
 - [GitHub Profile](https://github.com/Robert54)
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Learn Next.js](https://nextjs.org/learn)

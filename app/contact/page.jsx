@@ -37,6 +37,7 @@ const info = [
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [service, setService] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -58,6 +59,7 @@ export default function Contact() {
       if (response.ok) {
         setSubmitStatus('success');
         e.target.reset();
+        setService("");
       } else {
         setSubmitStatus('error');
       }
@@ -95,7 +97,8 @@ export default function Contact() {
                 <Input type="tel" name="phone" placeholder="Phone number" required />
               </div>
               {/* select */}
-              <Select name="service">
+              <input type="hidden" name="service" value={service} />
+              <Select value={service || undefined} onValueChange={setService}>
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select a service (optional)" />
                 </SelectTrigger>

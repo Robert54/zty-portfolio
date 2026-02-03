@@ -34,36 +34,16 @@ const SimliAvatar = ({ isOpen, onClose }) => {
     }
   }, []);
 
-  const handleStart = useCallback(async () => {
-    setIsLoading(true);
-    setError("");
-
-    try {
-      initializeSimliClient();
-
-      // Request microphone access
-      await navigator.mediaDevices.getUserMedia({ audio: true });
-
-      // Start Simli client
-      await simliClient?.start();
-      eventListenerSimli();
-    } catch (error) {
-      console.error("Error starting interaction:", error);
-      setError(`Error starting interaction: ${error.message}`);
-      setIsLoading(false);
-    }
-  }, []);
-
-  const muteVapiInternalAudio = () => {
+  const muteVapiInternalAudio = useCallback(() => {
     const audioElements = document.getElementsByTagName("audio");
     for (let i = 0; i < audioElements.length; i++) {
       if (audioElements[i].id !== "simli_audio") {
         audioElements[i].muted = true;
       }
     }
-  };
+  }, []);
 
-  const getAudioElementAndSendToSimli = () => {
+  const getAudioElementAndSendToSimli = useCallback(() => {
     if (simliClient) {
       muteVapiInternalAudio();
       try {
@@ -87,7 +67,7 @@ const SimliAvatar = ({ isOpen, onClose }) => {
     } else {
       setTimeout(getAudioElementAndSendToSimli, 10);
     }
-  };
+  }, [muteVapiInternalAudio]);
 
   const eventListenerVapi = useCallback(() => {
     if (!vapi) {
@@ -116,7 +96,21 @@ const SimliAvatar = ({ isOpen, onClose }) => {
       console.log("Vapi call ended");
       setIsAvatarVisible(false);
     });
-  }, []);
+  }, [getAudioElementAndSendToSimli]);
+
+  const startVapiInteraction = useCallback(async () => {
+    try {
+      if (!vapi) {
+        vapi = new Vapi(process.env.NEXT_PUBLIC_VAPI_API_KEY);
+      }
+      await vapi.start(process.env.NEXT_PUBLIC_VAPI_AGENT_ID);
+      console.log("Vapi interaction started");
+      eventListenerVapi();
+    } catch (error) {
+      console.error("Error starting Vapi:", error);
+      setError(`Error starting Vapi: ${error.message}`);
+    }
+  }, [eventListenerVapi]);
 
   const eventListenerSimli = useCallback(() => {
     if (simliClient) {
@@ -133,23 +127,29 @@ const SimliAvatar = ({ isOpen, onClose }) => {
         if (vapi) vapi.stop();
       });
     }
-  }, []);
+  }, [startVapiInteraction]);
 
-  const startVapiInteraction = async () => {
+  const handleStart = useCallback(async () => {
+    setIsLoading(true);
+    setError("");
+
     try {
-      if (!vapi) {
-        vapi = new Vapi(process.env.NEXT_PUBLIC_VAPI_API_KEY);
-      }
-      await vapi.start(process.env.NEXT_PUBLIC_VAPI_AGENT_ID);
-      console.log("Vapi interaction started");
-      eventListenerVapi();
-    } catch (error) {
-      console.error("Error starting Vapi:", error);
-      setError(`Error starting Vapi: ${error.message}`);
-    }
-  };
+      initializeSimliClient();
 
-  const cleanup = () => {
+      // Request microphone access
+      await navigator.mediaDevices.getUserMedia({ audio: true });
+
+      // Start Simli client
+      await simliClient?.start();
+      eventListenerSimli();
+    } catch (error) {
+      console.error("Error starting interaction:", error);
+      setError(`Error starting interaction: ${error.message}`);
+      setIsLoading(false);
+    }
+  }, [eventListenerSimli, initializeSimliClient]);
+
+  const cleanup = useCallback(() => {
     if (vapi) {
       vapi.removeAllListeners();
       vapi.stop();
@@ -163,14 +163,14 @@ const SimliAvatar = ({ isOpen, onClose }) => {
     setIsAvatarVisible(false);
     setIsLoading(false);
     onClose();
-  };
+  }, [onClose]);
 
   useEffect(() => {
     if (isOpen) {
       handleStart();
     }
     return cleanup;
-  }, [isOpen, handleStart]);
+  }, [cleanup, handleStart, isOpen]);
 
   if (!isOpen) return null;
 

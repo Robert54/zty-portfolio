@@ -39,7 +39,7 @@ const Scene = () => (
     /> */}
     <FBOParticles 
       // color="#4682B4" 
-      color="#FF5F1G"
+      color="#FF5F1F"
       position={[0, -1.5, 0]} 
       timeOffset={10} 
       count={10000} 

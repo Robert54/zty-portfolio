@@ -8,12 +8,12 @@ const DownloadButtons = () => {
     const link = document.createElement('a')
     
     if (type === 'ml') {
-      link.href = 'https://drive.google.com/file/d/1xdgWKS9uXmJwZacuutRQmtpXReTUKK5L/view?usp=sharing'
+      link.href = 'https://drive.google.com/uc?export=download&id=1xdgWKS9uXmJwZacuutRQmtpXReTUKK5L'
       link.download = 'Tingyu_Zhang_ML_CV.pdf'
     } else {
       // link.href = 'https://drive.google.com/file/d/1q7ZIWir097x8XJhskl3S0BBtwOxuFtH9/view?usp=drive_link'
       // link.download = 'Tingyu_Zhang_FullStack_CV.pdf'
-      link.href = 'https://drive.google.com/file/d/1HqsDxIpKnOsYpMUk7PGGOv2mmhEpI4ID/view?usp=sharing'
+      link.href = 'https://drive.google.com/uc?export=download&id=1HqsDxIpKnOsYpMUk7PGGOv2mmhEpI4ID'
       link.download = 'Tingyu_Zhang_Resume.pdf'
     }
 
