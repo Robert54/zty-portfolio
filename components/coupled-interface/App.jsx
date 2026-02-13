@@ -6,7 +6,8 @@ import FBOParticles from "./FBOParticles";
 const Scene = () => (
   <Canvas
     camera={{ position: [1.5, 1.5, 2.5] }}
-    style={{ background: "black" }}
+    gl={{ alpha: true }}
+    style={{ background: "transparent" }}
   >
     <ambientLight intensity={0.8} />
     <FBOParticles
