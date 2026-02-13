@@ -11,8 +11,7 @@ const fragmentShader = `
     
     vec3 color = uColor * strength;
     
-    // Use the new uOpacity uniform, but ensure it doesn't make particles disappear
-    float alpha = strength * max(uOpacity, 0.5);
+    float alpha = strength * uOpacity;
 
     gl_FragColor = vec4(color, alpha);
   }
