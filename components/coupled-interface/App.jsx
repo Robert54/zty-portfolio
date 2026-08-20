@@ -7,6 +7,7 @@ const Scene = () => (
   <Canvas
     camera={{ position: [1.5, 1.5, 2.5] }}
     style={{ background: "transparent" }}
+    flat
     // style={{ background: "black" }}
   >
     <ambientLight intensity={0.8} />
@@ -39,11 +40,11 @@ const Scene = () => (
     /> */}
     <FBOParticles 
       // color="#4682B4" 
-      color="#FF5F1G"
-      position={[0, -1.5, 0]} 
-      timeOffset={10} 
-      count={10000} 
-      scale={0.8} 
+      color="#FFFFFF"
+      position={[0, -1.5, 0]}
+      timeOffset={10}
+      count={10000}
+      scale={0.8}
       opacity={0.95}
     />
     {/* <FBOParticles 
