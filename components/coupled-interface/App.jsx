@@ -12,7 +12,7 @@ const Scene = () => (
     <ambientLight intensity={0.8} />
     <FBOParticles 
       // color="#FF5F1F"
-      color="#00CED1"
+      color="#00ff99"
       // color="#00FF94" 
       // color="#FF5F1F"
       position={[-1.5, 0, 0]} 
@@ -30,7 +30,7 @@ const Scene = () => (
       opacity={0.01}
     />
     <FBOParticles 
-      color="#00CED1"
+      color="#00ff99"
       position={[0, -1.5, 0]} 
       timeOffset={10} 
       count={10000} 
@@ -55,7 +55,7 @@ const Scene = () => (
       opacity={0.45}
     /> */}
     {/* <FBOParticles 
-      color="#00CED1" // Deep Teal
+      color="#00ff99"
       position={[-1.8, 0, 0]} 
       timeOffset={0} 
       count={10000} 
