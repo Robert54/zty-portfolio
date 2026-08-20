@@ -21,18 +21,19 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import DownloadButtons from "@/components/ResumeDownloadButtons"
+import { splitHighlightedText } from "@/lib/utils"
 
 // about data
 const about = {
   title: "About me",
   description:
-    "Experienced AI/ML Full Stack Engineer with a strong background in computer engineering and computer science.",
+    "ML / Full Stack / Robotics Engineer specializing in building AI-powered agentic systems.",
   info: [
     { fieldName: "Name", fieldValue: "Tingyu (Robert) Zhang" },
     { fieldName: "Phone", fieldValue: "+1 (323) 943-5582" },
-    { fieldName: "Experience", fieldValue: "1+ Years" },
+    { fieldName: "Experience", fieldValue: "3+ Years" },
     { fieldName: "Github", fieldValue: "https://github.com/Robert54", isLink: true },
-    { fieldName: "Address", fieldValue: "4134 Pacific Coast Hwy, Torrance, CA, 90505" },
+    { fieldName: "Address", fieldValue: "San Jose, CA" },
     { fieldName: "Email", fieldValue: "zty9854@gmail.com" },
     { fieldName: "LinkedIn", fieldValue: "https://www.linkedin.com/in/tingyu-zhang-b3357314a/", isLink: true },
     { fieldName: "Languages", fieldValue: "English, Mandarin" },
@@ -43,12 +44,49 @@ const about = {
 const experience = {
   icon: "/assets/resume/badge.svg",
   title: "My experience",
-  description: "Professional experience in AI/ML, Full-Stack development, and algorithm engineering.",
+  description: "Professional experience in robotics, AI/ML, and full-stack agent systems.",
   items: [
+    {
+      company: "Neural Motion",
+      position: "Founding Cloud & ML Infrastructure Architect",
+      duration: "July 2026 - Present",
+      location: "Ontario, CA",
+      country: "United States",
+      details: [
+        "Lead cloud and ML infrastructure for Neural Motion's cross-embodiment data platform, covering distributed training, inference, and production AI services.",
+        "Design and operate GPU training clusters on GCP, including checkpointing, spot recovery, and high-speed interconnect validation for large-scale robot-policy training.",
+        "Build data-platform infrastructure that turns source-embodiment robot data into target-aligned training data across heterogeneous robot bodies.",
+      ]
+    },
+    {
+      company: "IntBot",
+      position: "Software Engineer",
+      duration: "October 2025 - July 2026",
+      location: "Sunnyvale, CA",
+      country: "United States",
+      details: [
+        "Improved LiveKit latency for humanoid robots, enhancing real-time communication.",
+        "Synchronized action agent signals with voice agents on the WebRTC layer for seamless interactions.",
+        "Designed and trained a Vision Language Model-based VAD to improve person localization in multi-person conversations.",
+        "Assisted in training and evaluating an Omni multimodal model integrating vision, audio, text, and action inputs.",
+      ]
+    },
+    {
+      company: "Across America Insurance Services",
+      position: "Forward Deployed Engineer",
+      duration: "July 2025 - October 2025",
+      location: "Riverside, CA",
+      country: "United States",
+      details: [
+        "Designed and developed an AI Voice Agent outbound calling system to streamline cancellation and renewal workflows, saving 2 hours of human calling time daily.",
+        "Developed a generalized MCP server that integrates seamlessly with ChatGPT and Claude connectors for enhanced API documentation.",
+        "Implemented a batch transcription pipeline for 3CX recordings, ensuring efficient updates to the ConceptOne System.",
+      ]
+    },
     {
       company: "All Abilities Solutions",
       position: "Applied AI Engineer",
-      duration: "December 2024 - Present",
+      duration: "December 2024 - October 2025",
       location: "Seattle, WA",
       country: "United States",
       details: [
@@ -79,7 +117,7 @@ const experience = {
       company: "AffectusAI",
       position: "AI Full Stack Engineer",
       duration: "June 2024 - December 2024",
-      location: "Remote (Los Angeles)",
+      location: "New York, NY",
       country: "United States",
       details: [
         "Personalized Growth Companion AI: Led end-to-end design and development of Personalized Growth Companion AI, a multi-agent system architected with LangGraph delivering proactive personalized experiences focused on personal growth, resulting in 40% boost in user engagement for self-reflection features.",
@@ -157,7 +195,7 @@ const education = {
     },
     {
       institution: "University of Toronto",
-      degree: "Bachelor in Computer Science, Double Minor in Mathematics & Statistics",
+      degree: "B.Sc. Specialist in Computer Science, Minor in Mathematics & Statistics",
       duration: "August 2016 - June 2021",
       city: "Toronto",
       country: "Canada",
@@ -183,21 +221,16 @@ const skills = {
 };
 
 const HighlightedText = ({ text, highlightWords }) => {
-  const words = text.split(/\b/);
   return (
     <span>
-      {words.map((word, index) => {
-        const lowerWord = word.toLowerCase();
-        const isHighlighted = highlightWords.some(hw => lowerWord.includes(hw.toLowerCase()));
-        return (
-          <span
-            key={index}
-            className={isHighlighted ? "text-accent font-semibold" : ""}
-          >
-            {word}
-          </span>
-        );
-      })}
+      {splitHighlightedText(text, highlightWords).map((segment, index) => (
+        <span
+          key={`${segment.text}-${index}`}
+          className={segment.highlighted ? "text-accent font-semibold" : ""}
+        >
+          {segment.text}
+        </span>
+      ))}
     </span>
   );
 };
@@ -227,7 +260,9 @@ export default function Resume() {
     'RAG', 'multimodal', 'Simli', 'Qwen2.5-VL', 'DeepSeek', 'Gemma', 'MLC', 'MLX', 'Google', 'Edge', 'OCR', 'Sesame', 'Arize', 'Gemini', 'Hume',
     'LangManus', 'LangGraph', 'MCP', 'React Native', 'Expo', 'Solito', 'Firebase', 'Vercel', 'TypeScript', 'Next.js', 'React', 'Langchain', 'Pinecone', 'MongoDB',
     'OpenAI', 'Groq', 'GPT-4o', 'Claude', 'TTS', 'STT', 'ElevenLabs', 'Play.HT', 'Deepgram', 'LiveKit', 'Vapi', 'Daily', 'pipecat',
-    'Unsloth', 'Modal', 'AWS', 'Lambda', 'NestJS', 'PostgreSQL', 'Prisma', 'Porter', 'New Relic', 'Twilio', 'WebRTC', 'S3', 'Merge', 'Clearvoice',
+    'WebRTC', 'VAD', 'Omni', 'humanoid', 'ChatGPT', '3CX', 'ConceptOne',
+    'GCP', 'cross-embodiment', 'GPU', 'checkpoint', 'inference', 'robot',
+    'Unsloth', 'Modal', 'AWS', 'Lambda', 'NestJS', 'PostgreSQL', 'Prisma', 'Porter', 'New Relic', 'Twilio', 'S3', 'Merge', 'Clearvoice',
     'Perplexity', 'GraphRAG', 'RIC', 'NVIDIA', 'NeMo', 'Guardrails', 'Flowise', 'AI', 'LLM', 'fine-tuning', 'analytics', 'dashboard', 'offline'
   ];
 
@@ -350,7 +385,7 @@ export default function Resume() {
               <div className="flex flex-col gap-8">
                 <h2 className="text-4xl font-bold mb-4">About me</h2>
                 <p className="text-lg text-white/80 max-w-[600px]">
-                  Experienced AI/ML Full Stack Engineer with a strong background in computer engineering and computer science.
+                  ML / Full Stack / Robotics Engineer specializing in building AI-powered agentic systems.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12 max-w-[800px]">
                   {about.info.map((item, index) => (

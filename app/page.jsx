@@ -23,12 +23,12 @@ export default function Home() {
       <div className="container mx-auto h-full relative z-10">
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
           <div className="text-center xl:text-left order-2 xl:order-none">
-            <span className="text-xl">Software Developer</span>
+            <span className="text-xl">Founding Cloud & ML Infrastructure Architect @ Neural Motion</span>
             <h1 className="h1 mb-6">
               Hello I&apos;m <br /> <span className="text-accent">Tingyu (Robert) Zhang</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">
-              I create intelligent, scalable digital solutions by merging advanced machine learning with full-stack development to elevate user experiences.
+              ML / Full Stack / Robotics Engineer specializing in building AI-powered agentic systems, cloud infrastructure, and cross-embodiment robot learning.
             </p>
             {/* Download buttons and social icons */}
             <div className="flex flex-col xl:flex-row items-center gap-8">

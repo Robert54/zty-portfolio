@@ -30,7 +30,7 @@ const info = [
   {
     icon: <FaMapMarkerAlt />,
     title: "Address",
-    description: "4134 Pacific Coast Hwy, Torrance, CA, 90505",
+    description: "San Jose, CA",
   },
 ];
 

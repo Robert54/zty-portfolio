@@ -19,8 +19,8 @@ const VoiceWave = dynamic(() => import("@/components/VoiceWave"), {
 })
 
 export const metadata = {
-  title: "Tingyu Zhang | AI/ML Full Stack Engineer",
-  description: "Portfolio of Tingyu (Robert) Zhang, focused on AI/ML and full-stack engineering.",
+  title: "Tingyu Zhang | Neural Motion",
+  description: "Portfolio of Tingyu (Robert) Zhang, founding cloud and ML infrastructure architect at Neural Motion.",
 };
 
 export default function RootLayout({ children }) {
