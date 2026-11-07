@@ -20,7 +20,7 @@ const VoiceWave = dynamic(() => import("@/components/VoiceWave"), {
 
 export const metadata = {
   title: "Tingyu Zhang | Neural Motion",
-  description: "Portfolio of Tingyu (Robert) Zhang, founding cloud and ML infrastructure architect at Neural Motion.",
+  description: "Portfolio of Tingyu (Robert) Zhang, founding cloud architect at Neural Motion.",
 };
 
 export default function RootLayout({ children }) {

@@ -105,9 +105,10 @@ export default function Contact() {
                 <SelectContent>
                   <SelectGroup>
                     <SelectLabel>Select a service</SelectLabel>
-                    <SelectItem value="Web Development">Web Development</SelectItem>
-                    <SelectItem value="Backend/RAG Development">Backend/RAG Development</SelectItem>
-                    <SelectItem value="Model Training/Testing and Evaluation">Model Training/Testing and Evaluation</SelectItem>
+                    <SelectItem value="Cloud & ML Infrastructure">Cloud &amp; ML Infrastructure</SelectItem>
+                    <SelectItem value="Robotics & Embodied AI">Robotics &amp; Embodied AI</SelectItem>
+                    <SelectItem value="Model Training & Evaluation">Model Training &amp; Evaluation</SelectItem>
+                    <SelectItem value="AI Applications">AI Applications</SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>

@@ -5,12 +5,11 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from 'next/link';
 import {
-  FaJs,
   FaReact,
   FaPython,
-  FaJava,
+  FaAws,
 } from "react-icons/fa";
-import { SiTailwindcss, SiNextdotjs, SiCplusplus, SiTensorflow, SiPytorch } from "react-icons/si";
+import { SiCplusplus, SiTensorflow, SiPytorch, SiNvidia, SiGooglecloud, SiTypescript } from "react-icons/si";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Tooltip,
@@ -48,9 +47,9 @@ const experience = {
   items: [
     {
       company: "Neural Motion",
-      position: "Founding Cloud & ML Infrastructure Architect",
-      duration: "July 2026 - Present",
-      location: "Ontario, CA",
+      position: "Founding Cloud Architect",
+      duration: "August 2026 - Present",
+      location: "Ontario, CA (Remote)",
       country: "United States",
       details: [
         "Lead cloud and ML infrastructure for Neural Motion's cross-embodiment data platform, covering distributed training, inference, and production AI services.",
@@ -60,15 +59,16 @@ const experience = {
     },
     {
       company: "IntBot",
-      position: "Software Engineer",
+      position: "Robotics Engineer",
       duration: "October 2025 - July 2026",
-      location: "Sunnyvale, CA",
+      location: "Ontario, CA (Remote)",
       country: "United States",
       details: [
         "Improved LiveKit latency for humanoid robots, enhancing real-time communication.",
         "Synchronized action agent signals with voice agents on the WebRTC layer for seamless interactions.",
         "Designed and trained a Vision Language Model-based VAD to improve person localization in multi-person conversations.",
         "Assisted in training and evaluating an Omni multimodal model integrating vision, audio, text, and action inputs.",
+        "Post-trained Vision Language Models and deployed them on edge hardware for robot perception, published as NVIDIA Cosmos Cookbook recipes (Cosmos-Reason2 on Jetson AGX Thor).",
       ]
     },
     {
@@ -86,7 +86,7 @@ const experience = {
     {
       company: "All Abilities Solutions",
       position: "Applied AI Engineer",
-      duration: "December 2024 - October 2025",
+      duration: "December 2024 - July 2025",
       location: "Seattle, WA",
       country: "United States",
       details: [
@@ -97,20 +97,6 @@ const experience = {
         "Multimodal Agent Architecture: Architected a real-time, Manus-inspired agent system for browser automation by implementing its core agentic loop with LangManus, leveraging the underlying LangGraph foundation to manage complex state and cyclical workflows while integrating with Vapi for voice I/O.",
         "Cross-platform Migration: Migrated from Next.js PWA to React Native (Expo + Solito) ensuring consistent web/mobile experience; connected external systems via Model Context Protocols with Firebase and Vercel analytics dashboards.",
         "AI Safety & Monitoring: Implemented comprehensive observability using Arize for voice pipeline tracing and Hume AI for real-time sentiment analysis, ensuring enterprise-grade reliability and user safety."
-      ]
-    },
-    {
-      company: "AchillesHR (Contract)",
-      position: "Machine Learning Engineer - Voice Agent Development",
-      duration: "April 2025 - June 2025",
-      location: "New York, NY",
-      country: "United States",
-      details: [
-        "Ultra-low Latency Voice Pipeline: Developed an ultra-low-latency STT-LLM-TTS workflow using LangGraph, integrating GPT-4o, Claude 3.5, and ElevenLabs to power dynamic, multilingual (12+ languages) HR interviews for 50+ clients.",
-        "Performance Optimization: Slashed p95 TTS latency by 57% (7s → 3s) and cut GPU costs by 40% by quantizing DiaTTS with Unsloth and deploying autoscaling inference endpoints on Modal and AWS Lambda.",
-        "Production SaaS Platform: Engineered a scalable, multi-tenant microservices backend (NestJS, PostgreSQL, Prisma) for 100+ companies. Implemented blue-green CI/CD (Porter.run) and APM (New Relic) to achieve 99.9% uptime, handling real-time calls via Twilio SIP and LiveKit WebRTC.",
-        "LLM Tool-calling Pipeline: Created a secure LLM tool-calling pipeline to ingest and parse resumes from presigned S3 URLs using a custom RAG system, enabling bidirectional data sync with enterprise HR systems (e.g., Oracle HCM) via Merge.dev.",
-        "Speaker Diarization Enhancement: Boosted speaker diarization accuracy to 95% by fine-tuning models (Clearvoice, ElevenLabs) and implementing custom post-processing, which directly increased downstream model A/B test win-rates by 22%."
       ]
     },
     {
@@ -128,21 +114,9 @@ const experience = {
       ]
     },
     {
-      company: "Chima (YC-W23)",
-      position: "Applied AI Engineer",
-      duration: "January 2024 - February 2024",
-      location: "San Francisco, CA",
-      country: "United States",
-      details: [
-        "MVP LLM Integration: Delivered MVP LLM integration for knowledge gap detection using OpenAI and Perplexity APIs.",
-        "Cost Optimization: Optimized API costs by 40% through intelligent caching and request batching strategies.",
-        "Full-stack Development: Built scalable FastAPI backend with React frontend deployed on Vercel achieving sub-200ms response times."
-      ]
-    },
-    {
       company: "Ping An Technology",
       position: "Machine Learning Engineer Intern (NLP)",
-      duration: "June 2021 - August 2021",
+      duration: "May 2021 - August 2021",
       location: "Shanghai",
       country: "China",
       details: [
@@ -189,7 +163,7 @@ const education = {
     {
       institution: "University of Southern California",
       degree: "Master in Computer Engineering",
-      duration: "September 2021 - December 2023",
+      duration: "July 2021 - December 2023",
       city: "Los Angeles",
       country: "United States",
     },
@@ -210,13 +184,13 @@ const skills = {
     "Proficient in various programming languages, frameworks, and tools for AI/ML and full-stack development.",
   skillList: [
     { icon: <FaPython />, name: "Python" },
-    { icon: <FaJava />, name: "Java" },
     { icon: <SiCplusplus />, name: "C/C++" },
-    { icon: <FaJs />, name: "JavaScript" },
+    { icon: <SiPytorch />, name: "PyTorch" },
+    { icon: <SiNvidia />, name: "CUDA" },
+    { icon: <SiGooglecloud />, name: "GCP" },
+    { icon: <FaAws />, name: "AWS" },
+    { icon: <SiTypescript />, name: "TypeScript" },
     { icon: <FaReact />, name: "React" },
-    { icon: <SiNextdotjs />, name: "Next.js" },
-    { icon: <SiPytorch />, name: "Pytorch" },
-    { icon: <SiTailwindcss />, name: "Tailwind CSS" },
   ],
 };
 
@@ -261,7 +235,7 @@ export default function Resume() {
     'LangManus', 'LangGraph', 'MCP', 'React Native', 'Expo', 'Solito', 'Firebase', 'Vercel', 'TypeScript', 'Next.js', 'React', 'Langchain', 'Pinecone', 'MongoDB',
     'OpenAI', 'Groq', 'GPT-4o', 'Claude', 'TTS', 'STT', 'ElevenLabs', 'Play.HT', 'Deepgram', 'LiveKit', 'Vapi', 'Daily', 'pipecat',
     'WebRTC', 'VAD', 'Omni', 'humanoid', 'ChatGPT', '3CX', 'ConceptOne',
-    'GCP', 'cross-embodiment', 'GPU', 'checkpoint', 'inference', 'robot',
+    'GCP', 'Cosmos', 'Jetson', 'cross-embodiment', 'GPU', 'checkpoint', 'inference', 'robot',
     'Unsloth', 'Modal', 'AWS', 'Lambda', 'NestJS', 'PostgreSQL', 'Prisma', 'Porter', 'New Relic', 'Twilio', 'S3', 'Merge', 'Clearvoice',
     'Perplexity', 'GraphRAG', 'RIC', 'NVIDIA', 'NeMo', 'Guardrails', 'Flowise', 'AI', 'LLM', 'fine-tuning', 'analytics', 'dashboard', 'offline'
   ];

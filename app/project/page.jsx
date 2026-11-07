@@ -17,6 +17,66 @@ import WorkSliderBtns from "@/components/WorkSliderBtns";
 
 const projects = [
   {
+    category: "NVIDIA Cosmos Cookbook",
+    title: "Egocentric Social Reasoning with Cosmos-Reason2",
+    date: "Winter 2026",
+    description:
+      "First author of an NVIDIA Cosmos Cookbook recipe that evaluates Cosmos-Reason2-8B on IntBot humanoid robots: reading greetings and gestures, tracking object motion, managing attention across several people and respecting social boundaries in live service settings.",
+    stack: [
+      { name: "Cosmos-Reason2-8B" },
+      { name: "VLM" },
+      { name: "Humanoid Robots" },
+    ],
+    image: "/assets/work/cosmos_egocentric.jpg",
+    live: "https://nvidia-cosmos.github.io/cosmos-cookbook/recipes/inference/reason2/intbot_showcase/inference.html",
+    github: "https://github.com/nvidia-cosmos/cosmos-cookbook",
+  },
+  {
+    category: "NVIDIA Cosmos Cookbook",
+    title: "Edge VLM Perception on Jetson Thor",
+    date: "Spring 2026",
+    description:
+      "IntBot recipe in the NVIDIA Cosmos Cookbook: Cosmos-Reason2-2B quantized to FP8 and built into TensorRT engines on Jetson AGX Thor, giving social robots real-time scene understanding without cloud inference.",
+    stack: [
+      { name: "Cosmos-Reason2-2B" },
+      { name: "TensorRT" },
+      { name: "Jetson Thor" },
+      { name: "FP8" },
+    ],
+    image: "/assets/work/cosmos_edge_vlm.jpg",
+    live: "https://nvidia-cosmos.github.io/cosmos-cookbook/recipes/inference/reason2/intbot_edge_vlm/inference.html",
+    github: "https://github.com/nvidia-cosmos/cosmos-cookbook",
+  },
+  {
+    category: "NVIDIA V2D Challenge",
+    title: "Video-to-Data Challenge 2026",
+    date: "Fall 2026",
+    description:
+      "Competed as team Neural Motion in three tracks of NVIDIA's Video-to-Data Challenge: reconstructing humans, objects and object poses from third-person video, training physics-based motion policies on 8×H100 GCP Spot clusters, and reconstructing egocentric hand–object interaction.",
+    stack: [
+      { name: "SAM 3D Body" },
+      { name: "PyTorch" },
+      { name: "GCP" },
+      { name: "Docker" },
+    ],
+    image: "/assets/work/v2d_challenge.png",
+    live: "https://huggingface.co/datasets/robertzty/v2d-2026-neural-motion-track1-container",
+  },
+  {
+    category: "community",
+    title: "Robotics & World Models Reading Club",
+    date: "Spring 2026",
+    description:
+      "Co-organize, with Neural Motion as sponsor, a weekly San Francisco reading club on world models and robot learning (V-JEPA 2, policy adaptation, video world models) that brings together researchers from UC Berkeley, Stanford, NVIDIA and Bay Area robotics startups.",
+    stack: [
+      { name: "World Models" },
+      { name: "V-JEPA 2" },
+      { name: "Robot Learning" },
+    ],
+    image: "/assets/work/reading_club.png",
+    live: "https://luma.com/561xgirg",
+  },
+  {
     category: "AGI House hackathon",
     title: "Inflection AI + LiveKit Integration",
     date: "Summer 2025",
@@ -183,6 +243,7 @@ const Work = () => {
                     </Tooltip>
                   </TooltipProvider>
                 </Link>
+                {project.github && (
                 <Link
                   href={project.github}
                   target="_blank"
@@ -200,6 +261,7 @@ const Work = () => {
                     </Tooltip>
                   </TooltipProvider>
                 </Link>
+                )}
               </div>
             </div>
           </div>

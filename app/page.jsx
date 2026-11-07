@@ -34,7 +34,7 @@ export default function Home() {
       <div className="container mx-auto h-full relative z-10">
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
           <div className="text-center xl:text-left order-2 xl:order-none">
-            <span className="text-xl">Founding Cloud & ML Infrastructure Architect @ Neural Motion</span>
+            <span className="text-xl">Founding Cloud Architect @ Neural Motion</span>
             <h1 className="h1 mb-6">
               Hello I&apos;m <br /> <span className="text-accent">Tingyu (Robert) Zhang</span>
             </h1>
