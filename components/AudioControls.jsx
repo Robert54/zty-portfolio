@@ -44,7 +44,7 @@ export default function AudioControls() {
         <Square size={16} />
       </button>
       <div className="text-xs text-white/80">
-        {formatTime(currentTime)} / {formatTime(duration)}
+        {formatTime(currentTime)} / {Number.isFinite(duration) && duration > 0 ? formatTime(duration) : "--:--"}
       </div>
     </div>
   )

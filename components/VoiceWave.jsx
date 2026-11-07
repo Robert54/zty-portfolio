@@ -1,57 +1,66 @@
 'use client'
 
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { useAudio } from '@/components/AudioContext'
 
 const BAR_COUNT = 256
 const MAX_HEIGHT = 90
+const BAR_COLOR = '#00CED1'
+// Fraction of the gap to the target height closed each frame (stands in for the old spring)
+const EASE = 0.5
 
 export default function VoiceWave() {
   const { isPlaying, analyser } = useAudio()
-  const [audioData, setAudioData] = useState(new Array(BAR_COUNT).fill(0))
-  const animationRef = useRef(null)
-  const cancelAnimation = useRef(false)
+  const canvasRef = useRef(null)
 
+  // Draw straight to the canvas each frame; no React state changes per frame
   useEffect(() => {
-    cancelAnimation.current = false
+    const canvas = canvasRef.current
+    if (!isPlaying || !analyser || !canvas) return
 
-    const updateWaveform = () => {
-      if (!analyser || cancelAnimation.current) return
+    const ctx = canvas.getContext('2d')
+    const dataArray = new Uint8Array(analyser.frequencyBinCount)
+    const heights = new Float32Array(BAR_COUNT)
+    const half = BAR_COUNT / 2
+    let frameId = null
 
-      const dataArray = new Uint8Array(analyser.frequencyBinCount)
+    const resize = () => {
+      const dpr = window.devicePixelRatio || 1
+      canvas.width = Math.round(canvas.clientWidth * dpr)
+      canvas.height = Math.round(MAX_HEIGHT * dpr)
+    }
+
+    const draw = () => {
       analyser.getByteFrequencyData(dataArray)
 
-      const scaledData = Array.from(dataArray.slice(0, BAR_COUNT / 2)).map(
-        (value) => value / 255
-      )
-      const mirroredData = [...scaledData.reverse(), ...scaledData.reverse()]
+      const { width, height } = canvas
+      const barWidth = width / BAR_COUNT
+      ctx.clearRect(0, 0, width, height)
+      ctx.fillStyle = BAR_COLOR
 
-      if (cancelAnimation.current) return
+      for (let i = 0; i < BAR_COUNT; i++) {
+        // Mirror the low bins around the centre: left half reversed, right half in order
+        const bin = i < half ? half - 1 - i : i - half
+        const target = dataArray[bin] / 255
+        heights[i] += (target - heights[i]) * EASE
 
-      setAudioData((prevData) => {
-        const hasSignificantChange = mirroredData.some(
-          (value, index) => Math.abs(value - prevData[index]) > 0.01
-        )
-        return hasSignificantChange ? mirroredData : prevData
-      })
+        const barHeight = heights[i] * height
+        const x0 = Math.round(i * barWidth)
+        const x1 = Math.round((i + 1) * barWidth)
+        ctx.fillRect(x0, height - barHeight, x1 - x0, barHeight)
+      }
 
-      if (cancelAnimation.current) return
-
-      animationRef.current = requestAnimationFrame(updateWaveform)
+      frameId = requestAnimationFrame(draw)
     }
 
-    if (isPlaying && analyser) {
-      updateWaveform()
-    } else {
-      setAudioData(new Array(BAR_COUNT).fill(0))
-    }
+    resize()
+    window.addEventListener('resize', resize)
+    draw()
 
     return () => {
-      cancelAnimation.current = true
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current)
-      }
+      window.removeEventListener('resize', resize)
+      cancelAnimationFrame(frameId)
     }
   }, [isPlaying, analyser])
 
@@ -61,31 +70,17 @@ export default function VoiceWave() {
 
   return (
     <motion.div
-      className="fixed bottom-0 left-0 right-0 w-full flex items-end justify-center overflow-visible"
-      style={{ paddingLeft: '0%', zIndex: 10 }}
+      className="fixed bottom-0 left-0 right-0 w-full pointer-events-none"
+      style={{ zIndex: 10 }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
     >
-      {audioData.map((height, index) => (
-        <motion.div
-          key={index}
-          className="bg-accent"
-          style={{
-            width: `${100 / BAR_COUNT}%`,
-            height: `${height * MAX_HEIGHT}px`,
-          }}
-          initial={false}
-          animate={{ height: `${height * MAX_HEIGHT}px` }}
-          transition={{
-            type: 'spring',
-            stiffness: 400,
-            damping: 15,
-            mass: 0.1,
-          }}
-        />
-      ))}
+      <canvas
+        ref={canvasRef}
+        className="block w-full"
+        style={{ height: `${MAX_HEIGHT}px` }}
+      />
     </motion.div>
   )
 }

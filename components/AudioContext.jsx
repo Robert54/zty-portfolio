@@ -16,7 +16,7 @@ function initializeAudio() {
   if (!globalAudio.isInitialized && typeof window !== 'undefined') {
     try {
       globalAudio.context = new (window.AudioContext || window.webkitAudioContext)()
-      globalAudio.element = new Audio('/assets/resume/Tingyu_Zhang_Resume.wav')
+      globalAudio.element = new Audio('/assets/resume/Tingyu_Zhang_Resume.mp3')
       globalAudio.element.loop = true
       
       globalAudio.analyser = globalAudio.context.createAnalyser()
@@ -40,42 +40,47 @@ export const AudioProvider = ({ children }) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
-  const audioInitialized = useRef(false)
+  const removeListeners = useRef(null)
 
-  useEffect(() => {
-    if (!audioInitialized.current) {
-      audioInitialized.current = true
-      initializeAudio()
-    }
+  // The audio file and AudioContext are created on the first play (a user
+  // gesture), so page loads never fetch the resume audio.
+  const ensureAudio = () => {
+    if (!initializeAudio()) return false
 
-    if (globalAudio.element) {
-      const updateTime = () => setCurrentTime(globalAudio.element.currentTime)
-      const updateDuration = () => setDuration(globalAudio.element.duration)
+    if (!removeListeners.current) {
+      const element = globalAudio.element
+      const updateTime = () => setCurrentTime(element.currentTime)
+      const updateDuration = () => setDuration(element.duration)
       const updatePlayState = () => setIsPlaying(globalAudio.playState)
 
-      globalAudio.element.addEventListener('timeupdate', updateTime)
-      globalAudio.element.addEventListener('loadedmetadata', updateDuration)
-      globalAudio.element.addEventListener('play', updatePlayState)
-      globalAudio.element.addEventListener('pause', updatePlayState)
+      element.addEventListener('timeupdate', updateTime)
+      element.addEventListener('loadedmetadata', updateDuration)
+      element.addEventListener('play', updatePlayState)
+      element.addEventListener('pause', updatePlayState)
 
-      return () => {
-        globalAudio.element.removeEventListener('timeupdate', updateTime)
-        globalAudio.element.removeEventListener('loadedmetadata', updateDuration)
-        globalAudio.element.removeEventListener('play', updatePlayState)
-        globalAudio.element.removeEventListener('pause', updatePlayState)
+      removeListeners.current = () => {
+        element.removeEventListener('timeupdate', updateTime)
+        element.removeEventListener('loadedmetadata', updateDuration)
+        element.removeEventListener('play', updatePlayState)
+        element.removeEventListener('pause', updatePlayState)
+        removeListeners.current = null
       }
     }
-  }, [])
+    return true
+  }
+
+  useEffect(() => () => removeListeners.current?.(), [])
 
   const togglePlay = async (e) => {
     if (e) {
       e.preventDefault()
       e.stopPropagation()
     }
-    
+
     try {
       if (!globalAudio.playState) {
-        if (globalAudio.context?.state === 'suspended') {
+        if (!ensureAudio()) return
+        if (globalAudio.context.state === 'suspended') {
           await globalAudio.context.resume()
         }
         await globalAudio.element.play()

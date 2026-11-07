@@ -1,5 +1,5 @@
 'use client'
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Social from "@/components/Social";
 import Photo from "@/components/Photo";
 import Stats from "@/components/Stats";
@@ -13,11 +13,22 @@ const Scene = dynamic(() => import('@/components/coupled-interface/App'), {
 });
 
 export default function Home() {
+  // Skip the particle background for visitors who ask for reduced motion
+  const [showScene, setShowScene] = useState(false);
+
+  useEffect(() => {
+    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setShowScene(!query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
+
   return (
     <section className="h-full relative">
       {/* Render the 3D Scene as a background */}
       <div className="fixed inset-0 -z-10">
-        <Scene />
+        {showScene && <Scene />}
       </div>
       {/* hi */}
       <div className="container mx-auto h-full relative z-10">

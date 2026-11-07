@@ -10,6 +10,17 @@ import fragmentShader from "./fragmentShader";
 
 extend({ SimulationMaterial });
 
+// Full-screen quad for the simulation pass
+const positions = new Float32Array([
+  -1, -1, 0, 1, -1, 0, 1, 1, 0,
+  -1, -1, 0, 1, 1, 0, -1, 1, 0
+]);
+
+const uvs = new Float32Array([
+  0, 0, 1, 0, 1, 1,
+  0, 0, 1, 1, 0, 1
+]);
+
 const FBOParticles = ({
   color,
   position = [0, 0, 0],
@@ -25,19 +36,13 @@ const FBOParticles = ({
   const points = useRef(null);
   const simulationMaterialRef = useRef(null);
 
-  const scene = new THREE.Scene();
-  const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
-  camera.position.z = 1;
-
-  const positions = new Float32Array([
-    -1, -1, 0, 1, -1, 0, 1, 1, 0,
-    -1, -1, 0, 1, 1, 0, -1, 1, 0
-  ]);
-
-  const uvs = new Float32Array([
-    0, 0, 1, 0, 1, 1,
-    0, 0, 1, 1, 0, 1
-  ]);
+  // Off-screen scene for the simulation pass; built once, not on every render
+  const scene = useMemo(() => new THREE.Scene(), []);
+  const camera = useMemo(() => {
+    const orthoCamera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
+    orthoCamera.position.z = 1;
+    return orthoCamera;
+  }, []);
 
   const renderTarget = useFBO(size, size, {
     minFilter: THREE.NearestFilter,
