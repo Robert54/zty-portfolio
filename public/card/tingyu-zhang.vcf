@@ -1,0 +1,10 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Zhang;Tingyu;;;
+FN:Tingyu Zhang
+ORG:Advanced Global Manufacturing (AGM)
+TITLE:Data Scientist
+TEL;TYPE=CELL:+1 323-943-5582
+EMAIL;TYPE=INTERNET:tingyu@agminc.net
+ADR;TYPE=WORK:;Ste J559;4355 Cobb Pkwy SE;Atlanta;GA;30339;USA
+END:VCARD
