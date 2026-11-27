@@ -96,7 +96,8 @@ const Nav = () => {
           );
         })}
       </div>
-      <div className="ml-auto pl-8">
+      <div className="ml-auto pl-8 flex flex-col items-center">
+        <span className="text-[11px] leading-none whitespace-nowrap text-white/60">Resume podcast · Apr 2025</span>
         <AudioControls />
       </div>
     </nav>

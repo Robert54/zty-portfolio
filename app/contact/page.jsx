@@ -85,9 +85,9 @@ export default function Contact() {
           {/* form */}
           <div className="xl:w-[54%] order-2 xl:order-none">
             <form onSubmit={handleSubmit} className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
-              <h3 className="text-4xl text-accent">Let&apos;s work together</h3>
+              <h3 className="text-4xl text-accent">Let&apos;s talk</h3>
               <p className="text-white/60">
-                Architecting solutions, engineering success
+                Cross-embodiment robot data, GPU training infrastructure, world models, or anything else on this site.
               </p>
               {/* input */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

@@ -17,7 +17,7 @@ function initializeAudio() {
     try {
       globalAudio.context = new (window.AudioContext || window.webkitAudioContext)()
       globalAudio.element = new Audio('/assets/resume/Tingyu_Zhang_Resume.mp3')
-      globalAudio.element.loop = true
+      globalAudio.element.loop = false
       
       globalAudio.analyser = globalAudio.context.createAnalyser()
       globalAudio.analyser.fftSize = 2048
@@ -52,17 +52,24 @@ export const AudioProvider = ({ children }) => {
       const updateTime = () => setCurrentTime(element.currentTime)
       const updateDuration = () => setDuration(element.duration)
       const updatePlayState = () => setIsPlaying(globalAudio.playState)
+      // The podcast plays once, so show the play button again when it ends
+      const handleEnded = () => {
+        globalAudio.playState = false
+        setIsPlaying(false)
+      }
 
       element.addEventListener('timeupdate', updateTime)
       element.addEventListener('loadedmetadata', updateDuration)
       element.addEventListener('play', updatePlayState)
       element.addEventListener('pause', updatePlayState)
+      element.addEventListener('ended', handleEnded)
 
       removeListeners.current = () => {
         element.removeEventListener('timeupdate', updateTime)
         element.removeEventListener('loadedmetadata', updateDuration)
         element.removeEventListener('play', updatePlayState)
         element.removeEventListener('pause', updatePlayState)
+        element.removeEventListener('ended', handleEnded)
         removeListeners.current = null
       }
     }

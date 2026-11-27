@@ -18,6 +18,15 @@ export default function Photo() {
     setIsAvatarOpen(false);
   };
 
+  // Open on Enter or Space like a native button (ignore keys from inside the open avatar)
+  const handleAvatarKeyDown = (e) => {
+    if (e.target !== e.currentTarget) return;
+    if (e.key === "Enter" || e.key === " ") {
+      if (e.key === " ") e.preventDefault();
+      handleAvatarOpen();
+    }
+  };
+
   // Cleanup on unmount
   useEffect(() => {
     return () => {
@@ -60,6 +69,11 @@ export default function Photo() {
           }}
           className="w-[300px] h-[300px] xl:w-[500px] xl:h-[500px] relative overflow-hidden cursor-pointer"
           onClick={handleAvatarOpen}
+          onKeyDown={handleAvatarKeyDown}
+          // A button only while the photo shows; the open avatar has its own Close button
+          role={isAvatarOpen ? undefined : "button"}
+          tabIndex={isAvatarOpen ? -1 : 0}
+          aria-label={isAvatarOpen ? undefined : "Talk to my AI avatar (uses your microphone)"}
         >
           <div className="w-full h-full relative rounded-full overflow-hidden">
             {!isAvatarOpen ? (
@@ -109,6 +123,14 @@ export default function Photo() {
             }}
           />
         </motion.svg>
+
+        {/* Caption under the circle; hidden (but keeps its space) while the avatar is open */}
+        <p
+          className={`mt-4 text-center text-sm text-white/60 ${isAvatarOpen ? "invisible" : ""}`}
+          aria-hidden="true"
+        >
+          Talk to my AI avatar · uses your mic
+        </p>
       </motion.div>
     </div>
   )

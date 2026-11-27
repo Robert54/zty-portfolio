@@ -17,19 +17,19 @@ import WorkSliderBtns from "@/components/WorkSliderBtns";
 
 const projects = [
   {
-    category: "NVIDIA Cosmos Cookbook",
-    title: "Egocentric Social Reasoning with Cosmos-Reason2",
-    date: "Winter 2026",
+    category: "NVIDIA V2D Challenge",
+    title: "Video-to-Data Challenge 2026",
+    date: "Fall 2026",
     description:
-      "First author of an NVIDIA Cosmos Cookbook recipe that evaluates Cosmos-Reason2-8B on IntBot humanoid robots: reading greetings and gestures, tracking object motion, managing attention across several people and respecting social boundaries in live service settings.",
+      "Competed as team Neural Motion in three tracks of NVIDIA's Video-to-Data Challenge: reconstructing humans, objects and object poses from third-person video, training physics-based motion policies on 8×H100 GCP Spot clusters, and reconstructing egocentric hand–object interaction.",
     stack: [
-      { name: "Cosmos-Reason2-8B" },
-      { name: "VLM" },
-      { name: "Humanoid Robots" },
+      { name: "SAM 3D Body" },
+      { name: "PyTorch" },
+      { name: "GCP" },
+      { name: "Docker" },
     ],
-    image: "/assets/work/cosmos_egocentric.jpg",
-    live: "https://nvidia-cosmos.github.io/cosmos-cookbook/recipes/inference/reason2/intbot_showcase/inference.html",
-    github: "https://github.com/nvidia-cosmos/cosmos-cookbook",
+    image: "/assets/work/v2d_challenge.png",
+    live: "https://huggingface.co/datasets/robertzty/v2d-2026-neural-motion-track1-container",
   },
   {
     category: "NVIDIA Cosmos Cookbook",
@@ -48,21 +48,6 @@ const projects = [
     github: "https://github.com/nvidia-cosmos/cosmos-cookbook",
   },
   {
-    category: "NVIDIA V2D Challenge",
-    title: "Video-to-Data Challenge 2026",
-    date: "Fall 2026",
-    description:
-      "Competed as team Neural Motion in three tracks of NVIDIA's Video-to-Data Challenge: reconstructing humans, objects and object poses from third-person video, training physics-based motion policies on 8×H100 GCP Spot clusters, and reconstructing egocentric hand–object interaction.",
-    stack: [
-      { name: "SAM 3D Body" },
-      { name: "PyTorch" },
-      { name: "GCP" },
-      { name: "Docker" },
-    ],
-    image: "/assets/work/v2d_challenge.png",
-    live: "https://huggingface.co/datasets/robertzty/v2d-2026-neural-motion-track1-container",
-  },
-  {
     category: "community",
     title: "Robotics & World Models Reading Club",
     date: "Spring 2026",
@@ -75,6 +60,21 @@ const projects = [
     ],
     image: "/assets/work/reading_club.png",
     live: "https://luma.com/561xgirg",
+  },
+  {
+    category: "NVIDIA Cosmos Cookbook",
+    title: "Egocentric Social Reasoning with Cosmos-Reason2",
+    date: "Winter 2026",
+    description:
+      "First author of an NVIDIA Cosmos Cookbook recipe that evaluates Cosmos-Reason2-8B on IntBot humanoid robots: reading greetings and gestures, tracking object motion, managing attention across several people and respecting social boundaries in live service settings.",
+    stack: [
+      { name: "Cosmos-Reason2-8B" },
+      { name: "VLM" },
+      { name: "Humanoid Robots" },
+    ],
+    image: "/assets/work/cosmos_egocentric.jpg",
+    live: "https://nvidia-cosmos.github.io/cosmos-cookbook/recipes/inference/reason2/intbot_showcase/inference.html",
+    github: "https://github.com/nvidia-cosmos/cosmos-cookbook",
   },
   {
     category: "AGI House hackathon",
@@ -91,9 +91,7 @@ const projects = [
       "Built real-time emotional AI system using Pi 3.1's emotion attribute labeling with LiveKit WebRTC integration.",
       "Integrated Tavus for digital human coaching with dynamic emotional state detection during live sessions.",
     ],
-    image: "/assets/work/ai_conversation.png",
-    live: "https://github.com/Robert54",
-    github: "https://github.com/Robert54",
+    image: "/assets/work/inflection_livekit.png",
   },
   {
     category: "AI Engineering hackathon",
@@ -111,9 +109,7 @@ const projects = [
       "Fine-tuned Qwen 4B with custom Unsloth strategy achieving 91% compliance score with axe-core and WAVE evaluation.",
       "Created 18M token accessibility dataset using Claude 4 and Gemini 2.5 Flash for specialized training.",
     ],
-    image: "/assets/work/ai_scraper.png",
-    live: "https://github.com/Robert54",
-    github: "https://github.com/Robert54",
+    image: "/assets/work/accessible_codegen.png",
   },
   {
     category: "GPU hackathon",
@@ -133,7 +129,6 @@ const projects = [
     ],
     image: "/assets/work/cuda_codegen.png",
     live: "https://words.strongcompute.com/p/strong-compute-gpu-hackathon-recap",
-    github: "https://github.com/Robert54",
   },
   {
     category: "Llama Impact hackathon",
@@ -153,7 +148,6 @@ const projects = [
     ],
     image: "/assets/work/comp_llama.png",
     live: "https://lablab.ai/event/llama-impact-hackathon/compllama/compllama",
-    github: "https://github.com/Robert54",
   },
   {
     category: "autonomous driving",
@@ -167,8 +161,6 @@ const projects = [
       { name: "Pytorch" },
     ],
     image: "/assets/work/lane_simulation.png",
-    live: "https://github.com/Robert54",
-    github: "https://github.com/Robert54",
   },
   {
     category: "parallel computing",
@@ -181,9 +173,7 @@ const projects = [
       { name: "GEMM" },
       { name: "C++" },
     ],
-    image: "/assets/work/cuda_codegen.png",
-    live: "https://github.com/Robert54",
-    github: "https://github.com/Robert54",
+    image: "/assets/work/depthwise_conv.png",
   },
 ];
 
@@ -207,14 +197,20 @@ const Work = () => {
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row xl:gap-[30px]">
           {/* Left side content */}
-          <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
-            <div className="flex flex-col gap-[30px] h-[50%]">
-              <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
-                {String(projects.findIndex(p => p.title === project.title) + 1).padStart(2, "0")}
+          <div className="w-full xl:w-[50%] xl:h-[690px] flex flex-col xl:justify-between order-2 xl:order-none">
+            <div className="flex flex-col gap-[30px]">
+              <div className="flex items-center gap-6">
+                <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
+                  {String(projects.findIndex(p => p.title === project.title) + 1).padStart(2, "0")}
+                </div>
+                <span className="text-xl text-accent">{project.date}</span>
               </div>
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {project.category} project
-              </h2>
+              <div className="flex flex-col gap-2">
+                <p className="text-sm uppercase tracking-wider text-white/60">{project.category}</p>
+                <h2 className="text-[32px] xl:text-[40px] font-bold leading-tight text-balance text-white group-hover:text-accent transition-all duration-500">
+                  {project.title}
+                </h2>
+              </div>
               <p className="text-white/60">{project.description}</p>
               <ul className="flex flex-wrap gap-x-4 gap-y-2">
                 {project.stack.map((item, index) => (
@@ -224,8 +220,11 @@ const Work = () => {
                   </li>
                 ))}
               </ul>
+              {(project.live || project.github) && (
+                <>
               <div className="border border-white/20" />
               <div className="flex items-center gap-4">
+                {project.live && (
                 <Link
                   href={project.live}
                   target="_blank"
@@ -243,6 +242,7 @@ const Work = () => {
                     </Tooltip>
                   </TooltipProvider>
                 </Link>
+                )}
                 {project.github && (
                 <Link
                   href={project.github}
@@ -263,6 +263,8 @@ const Work = () => {
                 </Link>
                 )}
               </div>
+                </>
+              )}
             </div>
           </div>
           

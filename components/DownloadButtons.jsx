@@ -5,20 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 
 const DownloadButtons = () => {
-  const handleDownloadCV = (type) => {
-    // Create a link element
+  const handleDownloadCV = () => {
+    // Create a link element pointing at the current resume
     const link = document.createElement('a');
-    
-    // Set the appropriate URL based on CV type
-    if (type === 'ml') {
-      link.href = 'https://drive.google.com/uc?export=download&id=1PY7GgkKeNeq2iNLcGbQmb6wITN1keUNG';
-      link.download = 'Tingyu_Zhang_ML_CV.pdf';
-    } else {
-      // link.href = 'https://drive.google.com/file/d/1eUNu0Ann-1VLdNcUshuxmIDWPXsNH8Lk/view?usp=sharing';
-      // link.download = 'Tingyu_Zhang_FullStack_CV.pdf';
-      link.href = 'https://drive.google.com/uc?export=download&id=1HqsDxIpKnOsYpMUk7PGGOv2mmhEpI4ID';
-      link.download = 'Tingyu_Zhang_Resume.pdf'
-    }
+    link.href = 'https://drive.google.com/uc?export=download&id=1cun3ejGVLocAvZ9gmrJhvzhvsccmhluE';
+    link.download = 'Tingyu_Zhang_Resume_2026.pdf';
 
     // Append to document, trigger click, and remove
     document.body.appendChild(link);
@@ -32,20 +23,11 @@ const DownloadButtons = () => {
         variant="outline"
         size="lg"
         className="uppercase flex items-center gap-2"
-        onClick={() => handleDownloadCV('ml')}
+        onClick={handleDownloadCV}
       >
         <span>Resume</span>
         <Download className="h-5 w-5" />
       </Button>
-      {/* <Button
-        variant="outline"
-        size="lg"
-        className="uppercase flex items-center gap-2"
-        onClick={() => handleDownloadCV('fullstack')}
-      >
-        <span>Full Stack CV</span>
-        <Download className="h-5 w-5" />
-      </Button> */}
     </div>
   );
 };

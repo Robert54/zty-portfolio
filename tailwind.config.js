@@ -22,7 +22,7 @@ module.exports = {
         accent: {
           // DEFAULT: "#00ff99",
           DEFAULT: "#00CED1",
-          hover: "#00e187",
+          hover: "#00B4B7",
         },
       },
 

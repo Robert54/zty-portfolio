@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <section className="h-full relative">
       {/* Render the 3D Scene as a background */}
-      <div className="fixed inset-0 -z-10">
+      <div className="fixed inset-0 -z-10 opacity-40 xl:opacity-100">
         {showScene && <Scene />}
       </div>
       {/* hi */}
@@ -39,7 +39,7 @@ export default function Home() {
               Hello I&apos;m <br /> <span className="text-accent">Tingyu (Robert) Zhang</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">
-              ML / Full Stack / Robotics Engineer specializing in building AI-powered agentic systems, cloud infrastructure, and cross-embodiment robot learning.
+              From models that read data, to agents that talk with people, to robots that work among them — I now build the data and compute that let robots learn across bodies.
             </p>
             {/* Download buttons and social icons */}
             <div className="flex flex-col xl:flex-row items-center gap-8">

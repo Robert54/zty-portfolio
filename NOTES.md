@@ -60,3 +60,5 @@ In particular: mipmap-blur default, `bloom.frag`, blend shaders (`screen.frag` /
 Keep Kawase (old look) by passing `mipmapBlur={false}` explicitly, or retune `radius` / `luminanceThreshold` for the mipmap path. Do not assume `radius={2}` and `height={300}` still mean the same thing.
 
 `#FF5F1G` is not valid hex (likely a typo for `#FF5F1F`). Three.js warns and uses white, which is the intended second cloud.
+
+The second cloud is now written as `#FFFFFF` (the same white the invalid `#FF5F1G` fell back to), so the look is unchanged.

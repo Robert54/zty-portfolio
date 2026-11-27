@@ -27,6 +27,38 @@ const about = {
   title: "About me",
   description:
     "ML / Full Stack / Robotics Engineer specializing in building AI-powered agentic systems.",
+  chapters: [
+    {
+      years: "2016–2019",
+      title: "Foundations",
+      description:
+        "Computer science with math and statistics at the University of Toronto, and my first data-mining and NLP work at a Tsinghua University institute in 2018.",
+    },
+    {
+      years: "2020–2023",
+      title: "Perception & language",
+      description:
+        "Computer vision on satellite data at Em-data, NLP for policy forecasting at Ping An, then an M.S. in Computer Engineering at USC, where I hand-wrote CUDA kernels.",
+    },
+    {
+      years: "2024–2025",
+      title: "Agents that talk with people",
+      description:
+        "Multi-agent companions at AffectusAI, multimodal RAG and voice agents in production at All Abilities and Across America, and hackathon wins with Llama Stack and CUDA code generation.",
+    },
+    {
+      years: "2025–2026",
+      title: "Robots that interact with people",
+      description:
+        "Real-time voice and vision for IntBot's humanoid robots, and first author of an NVIDIA Cosmos Cookbook recipe on egocentric social reasoning.",
+    },
+    {
+      years: "2026–now",
+      title: "Infrastructure for robot learning",
+      description:
+        "Founding Cloud Architect at Neural Motion, building the data platform and GPU clusters that turn one robot's data into training data for robots with different bodies (cross-embodiment).",
+    },
+  ],
   info: [
     { fieldName: "Name", fieldValue: "Tingyu (Robert) Zhang" },
     { fieldName: "Phone", fieldValue: "+1 (323) 943-5582" },
@@ -51,6 +83,7 @@ const experience = {
       duration: "August 2026 - Present",
       location: "Ontario, CA (Remote)",
       country: "United States",
+      highlight: "Building GPU training clusters on GCP for cross-embodiment robot learning",
       details: [
         "Lead cloud and ML infrastructure for Neural Motion's cross-embodiment data platform, covering distributed training, inference, and production AI services.",
         "Design and operate GPU training clusters on GCP, including checkpointing, spot recovery, and high-speed interconnect validation for large-scale robot-policy training.",
@@ -63,6 +96,7 @@ const experience = {
       duration: "October 2025 - July 2026",
       location: "Ontario, CA (Remote)",
       country: "United States",
+      highlight: "Post-trained VLMs for edge robot perception, published as NVIDIA Cosmos Cookbook recipes",
       details: [
         "Improved LiveKit latency for humanoid robots, enhancing real-time communication.",
         "Synchronized action agent signals with voice agents on the WebRTC layer for seamless interactions.",
@@ -77,6 +111,7 @@ const experience = {
       duration: "July 2025 - October 2025",
       location: "Riverside, CA",
       country: "United States",
+      highlight: "AI voice agent that saves 2 hours of human calling time daily",
       details: [
         "Designed and developed an AI Voice Agent outbound calling system to streamline cancellation and renewal workflows, saving 2 hours of human calling time daily.",
         "Developed a generalized MCP server that integrates seamlessly with ChatGPT and Claude connectors for enhanced API documentation.",
@@ -89,6 +124,7 @@ const experience = {
       duration: "December 2024 - July 2025",
       location: "Seattle, WA",
       country: "United States",
+      highlight: "+40% accuracy fine-tuning Qwen2.5-VL with SFT + GRPO",
       details: [
         "AI SaaS Platform Development: Developed unified AI SaaS platform with multimodal RAG and long-term memory for Northwest Center and Marriott Bonvoy, featuring real-world automation and customer service workflows.",
         "Model Optimization on Verticals: Fine-tuned Qwen2.5-VL (3B parameters) using SFT + GRPO, achieving 40% accuracy improvement in domain-specific visual recognition tasks for janitorial automation workflows.",
@@ -105,6 +141,7 @@ const experience = {
       duration: "June 2024 - December 2024",
       location: "New York, NY",
       country: "United States",
+      highlight: "+40% user engagement with a LangGraph multi-agent companion",
       details: [
         "Personalized Growth Companion AI: Led end-to-end design and development of Personalized Growth Companion AI, a multi-agent system architected with LangGraph delivering proactive personalized experiences focused on personal growth, resulting in 40% boost in user engagement for self-reflection features.",
         "Digital Self Module: Engineered a deep personalization engine (the \"Digital Self\" module) by fine-tuning foundation models (Llama series) on user-specific corpora, creating a high-fidelity simulation of the user's internal thought processes and vectorized long-term memory.",
@@ -119,6 +156,7 @@ const experience = {
       duration: "May 2021 - August 2021",
       location: "Shanghai",
       country: "China",
+      highlight: "78% accuracy forecasting policy releases with temporal GNNs",
       details: [
         "Temporal Graph Neural Networks: Developed temporal graph neural networks for policy release prediction, analyzing historical policy documents, public opinions, and research reports to forecast timing and content of regulatory announcements with 78% accuracy.",
         "Event Extraction Pipeline: Built an event extraction pipeline using ElasticSearch, regex, and StanfordCoreNLP to extract government and industry elite opinions on policy impacts across sectors, processing 10,000+ documents daily.",
@@ -131,6 +169,7 @@ const experience = {
       duration: "September 2020 - November 2020",
       location: "Shanghai",
       country: "China",
+      highlight: "+15% precipitation detection accuracy from satellite data",
       details: [
         "Precipitation Detection Research: Conducted research on precipitation detection using satellite data based on modified Deeplab V3+, achieving 15% improvement in detection accuracy through custom neural architectures and loss functions.",
         "Data Synthesis: Synthesized satellite data with numerical weather prediction models from National Meteorological Center, optimizing Vision Transformer model features modality for enhanced precipitation detection accuracy.",
@@ -143,6 +182,7 @@ const experience = {
       duration: "July 2018 - August 2018",
       location: "Beijing",
       country: "China",
+      highlight: "NLP on city-office data and a CNN that detects website bots",
       details: [
         "Built database of biochemical corporations using data mining techniques.",
         "Analyzed raw data from city offices using NLP and deep learning for research publications.",
@@ -251,15 +291,15 @@ export default function Resume() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <Tabs
-          defaultValue="experience"
+          defaultValue="about"
           className="flex flex-col xl:flex-row gap-[60px]"
         > 
           <div className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
             <TabsList className="flex flex-col w-full gap-6">
+              <TabsTrigger value="about">About me</TabsTrigger>
               <TabsTrigger value="experience">Experience</TabsTrigger>
               <TabsTrigger value="education">Education</TabsTrigger>
               <TabsTrigger value="skills">Skills</TabsTrigger>
-              <TabsTrigger value="about">About me</TabsTrigger>
             </TabsList>
             <div className="w-full flex justify-center xl:justify-start">
               <DownloadButtons />
@@ -273,12 +313,12 @@ export default function Resume() {
                 <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0 text-sm">
                   {experience.description}
                 </p>
-                <ScrollArea className="h-[420px] w-full pr-4 [&_::-webkit-scrollbar]:w-2 [&_::-webkit-scrollbar-thumb]:bg-accent [&_::-webkit-scrollbar-thumb]:rounded-full [&_::-webkit-scrollbar-track]:bg-transparent [&_::-webkit-scrollbar-thumb]:transition-opacity [&_::-webkit-scrollbar-thumb]:duration-300 hover:[&_::-webkit-scrollbar-thumb]:opacity-100 [&_::-webkit-scrollbar-thumb]:opacity-0">
-                  <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
-                    {experience.items.map((item, index) => (
-                      <li
-                        key={index}
-                        className="bg-gradient-to-br from-[#2a2a30] to-[#1c1c20] h-auto py-6 px-6 rounded-xl flex flex-col justify-center items-start gap-2 relative group cursor-pointer"
+                <ul className="grid grid-cols-1 gap-[30px]">
+                  {experience.items.map((item, index) => (
+                    <li key={index}>
+                      <button
+                        type="button"
+                        className="w-full text-left bg-gradient-to-br from-[#2a2a30] to-[#1c1c20] h-auto py-6 px-6 rounded-xl flex flex-col justify-center items-start gap-2 relative group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                         onClick={() => openExperienceDialog(item)}
                       >
                         <div className="absolute inset-0 rounded-xl border-2 border-transparent transition-colors duration-300 group-hover:border-accent"></div>
@@ -290,11 +330,12 @@ export default function Resume() {
                           <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
                           <p className="text-white/60 text-sm">{item.company}</p>
                         </div>
+                        <p className="text-white/80 text-sm leading-snug">{item.highlight}</p>
                         <p className="text-white/60 text-sm">{item.location}, {item.country}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </ScrollArea>
+                      </button>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </TabsContent>
             <TabsContent value="education" className="w-full">
@@ -357,10 +398,16 @@ export default function Resume() {
             </TabsContent>
             <TabsContent value="about" className="w-full text-left">
               <div className="flex flex-col gap-8">
-                <h2 className="text-4xl font-bold mb-4">About me</h2>
-                <p className="text-lg text-white/80 max-w-[600px]">
-                  ML / Full Stack / Robotics Engineer specializing in building AI-powered agentic systems.
-                </p>
+                <h2 className="text-4xl font-bold mb-4">How I got here</h2>
+                <ol className="flex flex-col gap-6 max-w-[800px]">
+                  {about.chapters.map((chapter, index) => (
+                    <li key={index} className="flex flex-col gap-2">
+                      <span className="text-accent text-sm">{chapter.years}</span>
+                      <h3 className="text-xl font-bold leading-tight">{chapter.title}</h3>
+                      <p className="text-white/80">{chapter.description}</p>
+                    </li>
+                  ))}
+                </ol>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12 max-w-[800px]">
                   {about.info.map((item, index) => (
                     <div key={index} className="flex flex-col">

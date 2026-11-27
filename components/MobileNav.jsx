@@ -61,7 +61,7 @@ const MobileNav = () => {
                   cy="40" 
                   r="39" 
                   fill="none" 
-                  stroke="#0FCDA8" 
+                  stroke="#00CED1" 
                   strokeWidth="1" 
                   strokeDasharray="245" 
                   strokeDashoffset="245" 
@@ -92,7 +92,7 @@ const MobileNav = () => {
         {/* Podcast Controls */}
         <div className="mt-8 pt-4 border-t border-gray-700 w-full">
           <div className="flex flex-col items-center">
-            <h3 className="text-sm mb-2 text-white/70">Resume Podcast</h3>
+            <h3 className="text-sm mb-2 text-white/70">Resume podcast · Apr 2025</h3>
             <div className="w-full flex justify-center">
               <AudioControls />
             </div>
